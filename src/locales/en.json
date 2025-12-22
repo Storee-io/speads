@@ -87,5 +87,41 @@
       }
     ],
     "satisfaction": "Client Satisfaction"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our AI-powered approach.",
+    "list": [
+      {
+        "question": "How does Speads use AI in development?",
+        "answer": "We use AI at every stage: from requirements analysis and architecture planning to code generation, automated testing, and documentation. This allows our senior engineers to focus on logic and quality rather than repetitive tasks, resulting in 10x faster delivery."
+      },
+      {
+        "question": "Is AI-generated code secure?",
+        "answer": "Absolutely. All AI-assisted code is thoroughly reviewed, refactored, and tested by our experienced human engineers. We use AI as a powerful tool, but the final responsibility and quality control always lie with our engineering team."
+      },
+      {
+        "question": "How much cheaper is Speads compared to traditional agencies?",
+        "answer": "Because we can deliver projects significantly faster, we typically reduce costs by 40-60% compared to traditional development agencies while maintaining or exceeding their quality standards."
+      },
+      {
+        "question": "Do you work with startups and individuals?",
+        "answer": "Yes, we specialize in helping startups go from MVP to market quickly. We also offer accessible packages for individuals with big ideas who need high-end technical execution."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "We primarily work with modern, scalable stacks like Next.js, React, Node.js, Python, and cloud-native architectures (AWS/Supabase). We choose the best tech for your specific needs."
+      }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Ready to accelerate your",
+    "ctaHighlight": "Software Journey?",
+    "ctaSubtitle": "Join hundreds of businesses that have transformed their ideas into reality with Speads.",
+    "ctaPrimary": "Book a Discovery Call",
+    "ctaSecondary": "Get an Estimate",
+    "description": "The AI-powered software agency building the future of business applications. Faster, cheaper, and more reliable.",
+    "rights": "All rights reserved.",
+    "builtWith": "Built with AI-Assisted Engineering"
   }
 }
