@@ -3,33 +3,30 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-
-const audiences = [
-  {
-    type: "Corporates",
-    benefit: "Scale your legacy systems and build internal tools that actually work, powered by AI efficiency.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    type: "Startups",
-    benefit: "Go from idea to MVP in record time. Iterate faster than your competition with our AI-first approach.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    type: "Individuals",
-    benefit: "Turn your vision into reality without needing a massive budget. High-end software for everyone.",
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2055&auto=format&fit=crop",
-  },
-];
+import { useTranslation } from "@/lib/i18n";
 
 export function TargetAudience() {
+  const { t } = useTranslation();
+
+  const audiences = t.targetAudience.list.map((item, index) => {
+    const images = [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2055&auto=format&fit=crop"
+    ];
+    return {
+      ...item,
+      image: images[index]
+    };
+  });
+
   return (
     <section className="py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
             <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8 leading-tight">
-              Software Solutions for <span className="text-primary">Every Ambition</span>
+              {t.targetAudience.title} <span className="text-primary">{t.targetAudience.highlight}</span>
             </h2>
             <div className="space-y-8">
               {audiences.map((item, index) => (
@@ -89,7 +86,7 @@ export function TargetAudience() {
                 />
                 <div className="bg-primary p-8 rounded-2xl text-primary-foreground flex flex-col justify-end h-48">
                   <p className="text-4xl font-bold font-heading mb-2">98%</p>
-                  <p className="text-sm font-medium uppercase tracking-wider opacity-80">Client Satisfaction</p>
+                  <p className="text-sm font-medium uppercase tracking-wider opacity-80">{t.targetAudience.satisfaction}</p>
                 </div>
               </div>
             </motion.div>
