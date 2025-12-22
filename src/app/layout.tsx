@@ -3,8 +3,8 @@ import "./globals.css";
 import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
-import { LanguageProvider } from "@/lib/i18n";
-import { cookies } from "next/headers";
+import { LanguageProvider, type Locale } from "@/lib/i18n";
+import { cookies, headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Speads | AI-Powered Software Development Agency",
@@ -17,10 +17,21 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieStore = await cookies();
+  const headersList = await headers();
+  
   const localeCookie = cookieStore.get('NEXT_LOCALE');
-  const initialLocale = (localeCookie?.value === 'id' || localeCookie?.value === 'en') 
-    ? localeCookie.value as 'id' | 'en' 
+  let initialLocale: Locale | undefined = (localeCookie?.value === 'id' || localeCookie?.value === 'en') 
+    ? localeCookie.value as Locale 
     : undefined;
+
+  // Fallback to headers for first request
+  if (!initialLocale) {
+    const country = headersList.get('x-vercel-ip-country');
+    const acceptLanguage = headersList.get('accept-language');
+    if (country === 'ID' || acceptLanguage?.toLowerCase().includes('id')) {
+      initialLocale = 'id';
+    }
+  }
 
   return (
     <html lang={initialLocale || "en"} className="scroll-smooth">
