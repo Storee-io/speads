@@ -3,9 +3,18 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Cpu } from "lucide-react";
+import { Cpu, Globe } from "lucide-react";
+import { useTranslation } from "@/lib/i18n";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
+  const { t, locale, setLocale } = useTranslation();
+
   return (
     <motion.header 
       initial={{ y: -100 }}
@@ -21,15 +30,31 @@ export function Navbar() {
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          <Link href="#services" className="hover:text-foreground transition-colors">Services</Link>
-          <Link href="#how-it-works" className="hover:text-foreground transition-colors">How it works</Link>
-          <Link href="#pricing" className="hover:text-foreground transition-colors">Pricing</Link>
-          <Link href="#faq" className="hover:text-foreground transition-colors">FAQ</Link>
+          <Link href="#services" className="hover:text-foreground transition-colors">{t.navbar.services}</Link>
+          <Link href="#how-it-works" className="hover:text-foreground transition-colors">{t.navbar.howItWorks}</Link>
+          <Link href="#pricing" className="hover:text-foreground transition-colors">{t.navbar.pricing}</Link>
+          <Link href="#faq" className="hover:text-foreground transition-colors">{t.navbar.faq}</Link>
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="hidden sm:flex rounded-full">Login</Button>
-          <Button size="sm" className="rounded-full px-6">Get Started</Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Globe className="w-4 h-4" />
+                <span className="sr-only">Toggle language</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setLocale('en')} className={locale === 'en' ? 'bg-primary/10' : ''}>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setLocale('id')} className={locale === 'id' ? 'bg-primary/10' : ''}>
+                Indonesia
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Button variant="ghost" size="sm" className="hidden sm:flex rounded-full">{t.navbar.login}</Button>
+          <Button size="sm" className="rounded-full px-6">{t.navbar.getStarted}</Button>
         </div>
       </nav>
     </motion.header>
