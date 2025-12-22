@@ -3,60 +3,63 @@
 import { motion } from "framer-motion";
 import { Globe, Smartphone, Database, Code, Laptop, Cpu } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
-const services = [
-  {
-    title: "Web Development",
-    description: "High-performance marketing sites, e-commerce platforms, and complex web applications built with Next.js.",
-    icon: Globe,
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
-  },
-  {
-    title: "Mobile Apps",
-    description: "Native-feeling iOS and Android applications developed using cross-platform technologies and AI optimization.",
-    icon: Smartphone,
-    color: "text-purple-500",
-    bg: "bg-purple-500/10",
-  },
-  {
-    title: "Enterprise Systems",
-    description: "Robust internal tools, ERPs, and CRMs designed to streamline operations and scale with your business.",
-    icon: Database,
-    color: "text-green-500",
-    bg: "bg-green-500/10",
-  },
-  {
-    title: "Custom Software",
-    description: "Unique software solutions tailored to solve your specific business challenges and competitive needs.",
-    icon: Code,
-    color: "text-orange-500",
-    bg: "bg-orange-500/10",
-  },
-  {
-    title: "SaaS Platforms",
-    description: "End-to-end multi-tenant platform development including subscription management and user analytics.",
-    icon: Laptop,
-    color: "text-pink-500",
-    bg: "bg-pink-500/10",
-  },
-  {
-    title: "AI Integration",
-    description: "Powering your existing tools with LLMs, computer vision, and predictive analytics for a smarter future.",
-    icon: Cpu,
-    color: "text-indigo-500",
-    bg: "bg-indigo-500/10",
-  },
-];
+import { useTranslation } from "@/lib/i18n";
 
 export function Services() {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      title: t.services.list.web.title,
+      description: t.services.list.web.description,
+      icon: Globe,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+    },
+    {
+      title: t.services.list.mobile.title,
+      description: t.services.list.mobile.description,
+      icon: Smartphone,
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+    },
+    {
+      title: t.services.list.enterprise.title,
+      description: t.services.list.enterprise.description,
+      icon: Database,
+      color: "text-green-500",
+      bg: "bg-green-500/10",
+    },
+    {
+      title: t.services.list.custom.title,
+      description: t.services.list.custom.description,
+      icon: Code,
+      color: "text-orange-500",
+      bg: "bg-orange-500/10",
+    },
+    {
+      title: t.services.list.saas.title,
+      description: t.services.list.saas.description,
+      icon: Laptop,
+      color: "text-pink-500",
+      bg: "bg-pink-500/10",
+    },
+    {
+      title: t.services.list.ai.title,
+      description: t.services.list.ai.description,
+      icon: Cpu,
+      color: "text-indigo-500",
+      bg: "bg-indigo-500/10",
+    },
+  ];
+
   return (
     <section id="services" className="py-24 bg-zinc-50 dark:bg-zinc-950">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">What We Build</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">{t.services.title}</h2>
           <p className="text-lg text-muted-foreground">
-            Leveraging cutting-edge AI technology, we deliver complex software solutions in weeks, not months.
+            {t.services.subtitle}
           </p>
         </div>
 
