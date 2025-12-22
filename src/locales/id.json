@@ -1,0 +1,91 @@
+{
+  "navbar": {
+    "services": "Layanan",
+    "howItWorks": "Cara Kerja",
+    "pricing": "Harga",
+    "faq": "Tanya Jawab",
+    "login": "Masuk",
+    "getStarted": "Mulai Sekarang"
+  },
+  "hero": {
+    "badge": "Pengembangan Perangkat Lunak Berbasis AI",
+    "title": "Bangun Software",
+    "highlight": "10x Lebih Cepat",
+    "subtitle": "dengan Speads",
+    "description": "Dari startup hingga korporasi, kami membantu Anda membangun situs web, aplikasi, dan sistem kustom berkualitas tinggi dengan biaya jauh lebih murah menggunakan rekayasa berbantuan AI.",
+    "ctaPrimary": "Mulai Membangun Sekarang",
+    "ctaSecondary": "Lihat Studi Kasus",
+    "efficiency": "Peningkatan Efisiensi"
+  },
+  "services": {
+    "title": "Apa yang Kami Bangun",
+    "subtitle": "Memanfaatkan teknologi AI mutakhir, kami menghadirkan solusi perangkat lunak yang kompleks dalam hitungan minggu, bukan bulan.",
+    "list": {
+      "web": {
+        "title": "Pengembangan Web",
+        "description": "Situs pemasaran berkinerja tinggi, platform e-commerce, dan aplikasi web kompleks yang dibangun dengan Next.js."
+      },
+      "mobile": {
+        "title": "Aplikasi Mobile",
+        "description": "Aplikasi iOS dan Android yang terasa asli, dikembangkan menggunakan teknologi lintas-platform dan optimasi AI."
+      },
+      "enterprise": {
+        "title": "Sistem Perusahaan",
+        "description": "Alat internal yang kuat, ERP, dan CRM yang dirancang untuk merampingkan operasi dan berkembang bersama bisnis Anda."
+      },
+      "custom": {
+        "title": "Perangkat Lunak Kustom",
+        "description": "Solusi perangkat lunak unik yang disesuaikan untuk memecahkan tantangan bisnis spesifik dan kebutuhan kompetitif Anda."
+      },
+      "saas": {
+        "title": "Platform SaaS",
+        "description": "Pengembangan platform multi-tenant ujung ke ujung termasuk manajemen langganan dan analitik pengguna."
+      },
+      "ai": {
+        "title": "Integrasi AI",
+        "description": "Memberdayakan alat yang ada dengan LLM, computer vision, dan analitik prediktif untuk masa depan yang lebih cerdas."
+      }
+    }
+  },
+  "process": {
+    "title": "Proses Kami",
+    "subtitle": "Bagaimana kami menghadirkan perangkat lunak berkualitas tinggi lebih cepat dan lebih terjangkau daripada agensi tradisional.",
+    "steps": [
+      {
+        "title": "Penemuan & Strategi",
+        "description": "Kami mendalami kebutuhan bisnis, tujuan, dan target audiens Anda untuk menentukan peta jalan yang tepat."
+      },
+      {
+        "title": "Pengembangan Berbantuan AI",
+        "description": "Insinyur kami menggunakan alat AI canggih untuk menulis, menguji, dan mengoptimalkan kode dengan kecepatan kilat."
+      },
+      {
+        "title": "Jaminan Kualitas",
+        "description": "Pengujian dan penyempurnaan yang ketat memastikan perangkat lunak Anda kuat, aman, dan siap untuk skala besar."
+      },
+      {
+        "title": "Peluncuran & Pertumbuhan",
+        "description": "Kami meluncurkan produk Anda dan memberikan dukungan berkelanjutan untuk memastikan kesuksesan jangka panjang."
+      }
+    ]
+  },
+  "targetAudience": {
+    "title": "Solusi Perangkat Lunak untuk",
+    "highlight": "Setiap Ambisi",
+    "list": [
+      {
+        "type": "Korporasi",
+        "benefit": "Skalakan sistem warisan Anda dan bangun alat internal yang benar-benar berfungsi, didukung oleh efisiensi AI."
+      },
+      {
+        "type": "Startup",
+        "benefit": "Beranjak dari ide ke MVP dalam waktu singkat. Iterasi lebih cepat daripada kompetisi Anda dengan pendekatan AI-first kami."
+      },
+      {
+        "type": "Individu",
+        "benefit": "Ubah visi Anda menjadi kenyataan tanpa memerlukan anggaran besar. Perangkat lunak kelas atas untuk semua orang."
+      }
+    ],
+    "satisfaction": "Kepuasan Klien"
+  }
+}
