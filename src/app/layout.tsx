@@ -4,21 +4,28 @@ import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import { LanguageProvider } from "@/lib/i18n";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Speads | AI-Powered Software Development Agency",
   description: "Build websites, apps, and custom software 10x faster and cheaper with AI-assisted development. From startups to corporates, we scale your vision.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get('NEXT_LOCALE');
+  const initialLocale = (localeCookie?.value === 'id' || localeCookie?.value === 'en') 
+    ? localeCookie.value as 'id' | 'en' 
+    : undefined;
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang={initialLocale || "en"} className="scroll-smooth">
       <body className="font-sans antialiased">
-        <LanguageProvider>
+        <LanguageProvider initialLocale={initialLocale}>
           <Script
             id="orchids-browser-logs"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
