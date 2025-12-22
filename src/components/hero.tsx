@@ -2,10 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Shield, Rocket } from "lucide-react";
+import { ArrowRight, Zap, Rocket } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "@/lib/i18n";
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Background elements */}
@@ -23,23 +26,23 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-8">
             <Zap className="w-3 h-3 fill-current" />
-            <span>AI-Powered Software Development</span>
+            <span>{t.hero.badge}</span>
           </div>
 
           <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-            Build Software <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-600 to-indigo-600">10x Faster</span> with Speads
+            {t.hero.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-600 to-indigo-600">{t.hero.highlight}</span> {t.hero.subtitle}
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-            From startups to corporates, we help you build high-quality websites, apps, and custom systems at a fraction of the cost using AI-assisted engineering.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto shadow-lg shadow-primary/25">
-              Start Building Now <ArrowRight className="ml-2 w-5 h-5" />
+              {t.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-white/50 backdrop-blur-sm">
-              View Case Studies
+              {t.hero.ctaSecondary}
             </Button>
           </div>
 
@@ -76,7 +79,7 @@ export function Hero() {
                 <Rocket className="w-6 h-6 text-green-600" />
               </div>
               <div className="text-left">
-                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Efficiency boost</p>
+                <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">{t.hero.efficiency}</p>
                 <p className="text-2xl font-bold font-heading">+400%</p>
               </div>
             </div>
