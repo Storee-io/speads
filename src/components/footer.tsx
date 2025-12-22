@@ -3,19 +3,24 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Cpu, Github, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
+import { useTranslation } from "@/lib/i18n";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-zinc-950 text-zinc-400 py-20">
       <div className="container mx-auto px-6">
         <div className="bg-primary/10 border border-primary/20 rounded-3xl p-8 md:p-16 mb-20 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(var(--primary),0.1)_0,transparent_70%)] pointer-events-none" />
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Ready to accelerate your <span className="text-primary">Software Journey?</span></h2>
-          <p className="text-lg mb-10 max-w-2xl mx-auto">Join hundreds of businesses that have transformed their ideas into reality with Speads.</p>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6">
+            {t.footer.ctaTitle} <span className="text-primary">{t.footer.ctaHighlight}</span>
+          </h2>
+          <p className="text-lg mb-10 max-w-2xl mx-auto">{t.footer.ctaSubtitle}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto">Book a Discovery Call</Button>
+            <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto">{t.footer.ctaPrimary}</Button>
             <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto text-white border-white/20 hover:bg-white/10">
-              Get an Estimate <ArrowUpRight className="ml-2 w-4 h-4" />
+              {t.footer.ctaSecondary} <ArrowUpRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
@@ -29,7 +34,7 @@ export function Footer() {
               <span className="font-heading text-xl font-bold tracking-tight text-white">Speads</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6">
-              The AI-powered software agency building the future of business applications. Faster, cheaper, and more reliable.
+              {t.footer.description}
             </p>
             <div className="flex items-center gap-4">
               <Link href="#" className="hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></Link>
@@ -39,7 +44,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-bold text-white mb-6 uppercase tracking-wider text-sm">Services</h3>
+            <h3 className="font-heading font-bold text-white mb-6 uppercase tracking-wider text-sm">{t.navbar.services}</h3>
             <ul className="space-y-4 text-sm">
               <li><Link href="#" className="hover:text-white transition-colors">Web Development</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Mobile Applications</Link></li>
@@ -69,8 +74,8 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-xs flex flex-col md:flex-row justify-between gap-4">
-          <p>© {new Date().getFullYear()} Speads AI Agency. All rights reserved.</p>
-          <p>Built with AI-Assisted Engineering</p>
+          <p>© {new Date().getFullYear()} Speads AI Agency. {t.footer.rights}</p>
+          <p>{t.footer.builtWith}</p>
         </div>
       </div>
     </footer>
