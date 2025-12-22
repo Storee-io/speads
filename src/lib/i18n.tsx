@@ -17,23 +17,24 @@ const translations = { en, id };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en');
+export function LanguageProvider({ children, initialLocale }: { children: React.ReactNode, initialLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale || 'en');
 
   useEffect(() => {
-    // Detect from cookie or browser
-    const savedLocale = document.cookie.split('; ').find(row => row.startsWith('NEXT_LOCALE='))?.split('=')[1] as Locale;
-    
-    if (savedLocale && (savedLocale === 'en' || savedLocale === 'id')) {
-      setLocaleState(savedLocale);
-    } else {
-      // Auto-detect from browser/location (simplification: browser language)
-      const browserLang = navigator.language.split('-')[0];
-      const detectedLocale: Locale = browserLang === 'id' ? 'id' : 'en';
-      setLocaleState(detectedLocale);
-      document.cookie = `NEXT_LOCALE=${detectedLocale}; path=/; max-age=31536000`;
+    if (!initialLocale) {
+      // Only detect if initialLocale wasn't provided by server
+      const savedLocale = document.cookie.split('; ').find(row => row.startsWith('NEXT_LOCALE='))?.split('=')[1] as Locale;
+      
+      if (savedLocale && (savedLocale === 'en' || savedLocale === 'id')) {
+        setLocaleState(savedLocale);
+      } else {
+        const browserLang = navigator.language.split('-')[0];
+        const detectedLocale: Locale = browserLang === 'id' ? 'id' : 'en';
+        setLocaleState(detectedLocale);
+        document.cookie = `NEXT_LOCALE=${detectedLocale}; path=/; max-age=31536000`;
+      }
     }
-  }, []);
+  }, [initialLocale]);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
