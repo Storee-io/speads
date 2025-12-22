@@ -87,5 +87,41 @@
       }
     ],
     "satisfaction": "Kepuasan Klien"
+  },
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Segala sesuatu yang perlu Anda ketahui tentang pendekatan bertenaga AI kami.",
+    "list": [
+      {
+        "question": "Bagaimana Speads menggunakan AI dalam pengembangan?",
+        "answer": "Kami menggunakan AI di setiap tahap: dari analisis persyaratan dan perencanaan arsitektur hingga pembuatan kode, pengujian otomatis, dan dokumentasi. Ini memungkinkan insinyur senior kami untuk fokus pada logika dan kualitas daripada tugas-tugas yang berulang, menghasilkan pengiriman 10x lebih cepat."
+      },
+      {
+        "question": "Apakah kode yang dihasilkan AI aman?",
+        "answer": "Tentu saja. Semua kode berbantuan AI ditinjau secara menyeluruh, difaktorkan ulang, dan diuji oleh insinyur manusia kami yang berpengalaman. Kami menggunakan AI sebagai alat yang ampuh, tetapi tanggung jawab akhir dan kontrol kualitas selalu ada pada tim teknik kami."
+      },
+      {
+        "question": "Seberapa jauh lebih murah Speads dibandingkan dengan agensi tradisional?",
+        "answer": "Karena kami dapat mengirimkan proyek jauh lebih cepat, kami biasanya mengurangi biaya sebesar 40-60% dibandingkan dengan agensi pengembangan tradisional dengan tetap menjaga atau melampaui standar kualitas mereka."
+      },
+      {
+        "question": "Apakah Anda bekerja dengan startup dan individu?",
+        "answer": "Ya, kami berspesialisasi dalam membantu startup beralih dari MVP ke pasar dengan cepat. Kami juga menawarkan paket yang dapat diakses oleh individu dengan ide besar yang membutuhkan eksekusi teknis tingkat tinggi."
+      },
+      {
+        "question": "Teknologi apa yang Anda gunakan?",
+        "answer": "Kami terutama bekerja dengan tumpukan modern dan terukur seperti Next.js, React, Node.js, Python, dan arsitektur cloud-native (AWS/Supabase). Kami memilih teknologi terbaik untuk kebutuhan spesifik Anda."
+      }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Siap untuk mempercepat",
+    "ctaHighlight": "Perjalanan Software Anda?",
+    "ctaSubtitle": "Bergabunglah dengan ratusan bisnis yang telah mengubah ide mereka menjadi kenyataan dengan Speads.",
+    "ctaPrimary": "Pesan Panggilan Penemuan",
+    "ctaSecondary": "Dapatkan Estimasi",
+    "description": "Agensi perangkat lunak bertenaga AI yang membangun masa depan aplikasi bisnis. Lebih cepat, lebih murah, dan lebih andal.",
+    "rights": "Hak cipta dilindungi undang-undang.",
+    "builtWith": "Dibangun dengan Rekayasa Berbantuan AI"
   }
 }
