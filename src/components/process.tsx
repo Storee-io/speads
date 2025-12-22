@@ -2,42 +2,29 @@
 
 import { motion } from "framer-motion";
 import { MessageSquare, Zap, Rocket, CheckCircle } from "lucide-react";
-
-const steps = [
-  {
-    title: "Discovery & Strategy",
-    description: "We dive deep into your business needs, goals, and target audience to define a precise roadmap.",
-    icon: MessageSquare,
-    color: "bg-blue-500",
-  },
-  {
-    title: "AI-Assisted Development",
-    description: "Our engineers use advanced AI tools to write, test, and optimize code at lightning speed.",
-    icon: Zap,
-    color: "bg-primary",
-  },
-  {
-    title: "Quality Assurance",
-    description: "Rigorous testing and refinement ensure your software is robust, secure, and ready for scale.",
-    icon: CheckCircle,
-    color: "bg-green-500",
-  },
-  {
-    title: "Deployment & Growth",
-    description: "We launch your product and provide ongoing support to ensure long-term success.",
-    icon: Rocket,
-    color: "bg-indigo-500",
-  },
-];
+import { useTranslation } from "@/lib/i18n";
 
 export function Process() {
+  const { t } = useTranslation();
+
+  const steps = t.process.steps.map((step, index) => {
+    const icons = [MessageSquare, Zap, CheckCircle, Rocket];
+    const colors = ["bg-blue-500", "bg-primary", "bg-green-500", "bg-indigo-500"];
+    
+    return {
+      ...step,
+      icon: icons[index],
+      color: colors[index],
+    };
+  });
+
   return (
     <section id="how-it-works" className="py-24 bg-white dark:bg-black">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">Our Process</h2>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">{t.process.title}</h2>
           <p className="text-lg text-muted-foreground">
-            How we deliver high-quality software faster and more affordably than traditional agencies.
+            {t.process.subtitle}
           </p>
         </div>
 
