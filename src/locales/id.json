@@ -1,11 +1,104 @@
 {
-  "navigation": {
-    "home": "Beranda",
-    "about": "Tentang",
-    "contact": "Kontak"
+  "navbar": {
+    "services": "Layanan",
+    "howItWorks": "Cara Kerja",
+    "pricing": "Harga",
+    "faq": "FAQ",
+    "login": "Masuk",
+    "getStarted": "Mulai"
   },
   "hero": {
-    "title": "Selamat datang di website kami",
-    "description": "Ini adalah contoh website multi-bahasa."
+    "badge": "Didukung oleh Kecerdasan Buatan",
+    "title": "Wujudkan Visi Anda",
+    "highlight": "10x Lebih Cepat",
+    "subtitle": "dengan AI",
+    "description": "Kami spesialis dalam membangun website, aplikasi mobile, dan software perusahaan berperforma tinggi menggunakan teknologi AI mutakhir untuk hasil superior dalam waktu singkat.",
+    "ctaPrimary": "Mulai Proyek Anda",
+    "ctaSecondary": "Lihat Hasil Kerja",
+    "efficiency": "Peningkatan Efisiensi"
+  },
+  "services": {
+    "title": "Solusi Komprehensif",
+    "subtitle": "Kami menggabungkan keahlian manusia dengan AI untuk membangun software yang skalabel.",
+    "list": {
+      "web": {
+        "title": "Web Development",
+        "description": "Website responsif dan teroptimasi SEO yang mengubah pengunjung menjadi pelanggan."
+      },
+      "mobile": {
+        "title": "Aplikasi Mobile",
+        "description": "Aplikasi mobile native dan cross-platform untuk iOS dan Android dengan performa mulus."
+      },
+      "enterprise": {
+        "title": "Sistem Perusahaan",
+        "description": "ERP, CRM, dan sistem manajemen kustom yang disesuaikan dengan alur kerja bisnis Anda."
+      },
+      "custom": {
+        "title": "Software Kustom",
+        "description": "Solusi software unik untuk masalah kompleks yang tidak bisa diselesaikan produk standar."
+      },
+      "saas": {
+        "title": "Platform SaaS",
+        "description": "Platform berbasis cloud skalabel dengan arsitektur multi-tenant dan infrastruktur aman."
+      },
+      "ai": {
+        "title": "Integrasi AI",
+        "description": "Sematkan fitur cerdas seperti chatbot, analisis prediktif, dan otomasi ke dalam alat Anda."
+      }
+    }
+  },
+  "process": {
+    "title": "Alur Pengembangan Kami",
+    "subtitle": "Pendekatan efisien untuk membawa ide Anda dari konsep menjadi realitas.",
+    "steps": [
+      {
+        "title": "Konsultasi",
+        "description": "Kami mendiskusikan visi dan kebutuhan Anda untuk menentukan solusi yang sempurna."
+      },
+      {
+        "title": "Dev Berbasis AI",
+        "description": "Engineer kami menggunakan AI canggih untuk menulis kode bersih dan optimal secepat kilat."
+      },
+      {
+        "title": "Penjaminan Kualitas",
+        "description": "Pengujian ketat di semua perangkat untuk memastikan pengalaman pengguna yang sempurna."
+      },
+      {
+        "title": "Peluncuran & Support",
+        "description": "Kami menangani peluncuran dan menyediakan pemeliharaan berkelanjutan agar Anda terus tumbuh."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Pertanyaan Umum",
+    "subtitle": "Semua yang perlu Anda ketahui tentang proses pengembangan berbasis AI kami.",
+    "list": [
+      {
+        "question": "Mengapa Anda bisa membangun jauh lebih cepat?",
+        "answer": "Kami memanfaatkan asisten pengkodean AI canggih dan framework internal yang mengotomatiskan kode boilerplate, memungkinkan engineer senior kami fokus pada logika dan arsitektur."
+      },
+      {
+        "question": "Apakah kode yang dihasilkan AI aman?",
+        "answer": "Ya. Setiap baris kode ditinjau, diuji, dan diaudit oleh developer senior kami. Kami menggunakan AI sebagai alat kecepatan, tetapi keahlian manusia untuk keamanan."
+      },
+      {
+        "question": "Proyek apa saja yang Anda tangani?",
+        "answer": "Kami menangani segalanya mulai dari landing page dan toko e-commerce hingga platform fintech kompleks dan sistem manajemen perusahaan."
+      },
+      {
+        "question": "Apakah saya memiliki kode sumbernya?",
+        "answer": "Tentu saja. Setelah proyek selesai dan dibayar, Anda menerima kepemilikan penuh dan hak cipta atas semua kode sumber dan kekayaan intelektual."
+      }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Siap untuk transformasi",
+    "ctaHighlight": "Bisnis Anda?",
+    "ctaSubtitle": "Bergabunglah dengan ratusan perusahaan yang telah mempercepat pertumbuhan mereka dengan Speads AI.",
+    "ctaPrimary": "Bicara dengan Ahli",
+    "ctaSecondary": "Paket Harga",
+    "description": "Agensi pengembangan software berbasis AI terkemuka yang membantu bisnis membangun produk lebih baik dan cepat.",
+    "rights": "Hak cipta dilindungi undang-undang.",
+    "builtWith": "Dibangun dengan presisi dan AI."
   }
 }
