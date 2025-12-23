@@ -11,7 +11,11 @@ function getLocale(request: NextRequest): string | undefined {
     return cookieLocale;
   }
 
-  // 2. Check Browser Language (Accept-Language header)
+  // 2. Check GeoIP (Optional fallback, but user wants ID prioritized)
+  const country = request.headers.get('x-vercel-ip-country') || request.headers.get('cf-ipcountry');
+  if (country === 'ID') return 'id';
+
+  // 3. Check Browser Language (Accept-Language header)
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
@@ -19,14 +23,7 @@ function getLocale(request: NextRequest): string | undefined {
   const locales: string[] = i18n.locales;
   let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
-  // 3. GeoIP Fallback
-  const country = request.headers.get('x-vercel-ip-country') || request.headers.get('cf-ipcountry');
-  
   try {
-    // If the user is in Indonesia, we might want to prioritize 'id' 
-    // especially if they complained it's not working.
-    if (country === 'ID') return 'id';
-
     const locale = matchLocale(languages, locales, i18n.defaultLocale);
     return locale;
   } catch (e) {
