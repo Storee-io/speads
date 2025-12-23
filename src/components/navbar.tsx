@@ -22,23 +22,44 @@ export function Navbar() {
   const handleLanguageChange = (newLocale: string) => {
     if (!pathname) return;
     
-    // Split the pathname to replace the locale segment
-    const segments = pathname.split("/");
-    // segments[0] is empty because pathname starts with /
-    // segments[1] is the current locale
-    segments[1] = newLocale;
-    
-    const newPath = segments.join("/");
-    
     // Set cookie for middleware persistence
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
+
+    // Calculate new path based on "Default No Slug" rule
+    let newPath = pathname;
+
+    // Current is non-default (starts with /en)
+    if (pathname.startsWith('/en')) {
+      if (newLocale === i18n.defaultLocale) {
+        // Switching to default: remove /en prefix
+        newPath = pathname.replace(/^\/en/, '') || '/';
+      } else {
+        // Staying in non-default (not applicable with 2 langs but good for scaling)
+        newPath = pathname.replace(/^\/[^/]+/, `/${newLocale}`);
+      }
+    } else {
+      // Current is default (no slug)
+      if (newLocale !== i18n.defaultLocale) {
+        // Switching to non-default: add prefix
+        newPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
+      }
+      // Staying in default: do nothing
+    }
     
     router.push(newPath);
   };
 
   // Helper to get localized link
   const getLocalizedLink = (path: string) => {
-    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    
+    // If locale is default, no prefix
+    if (locale === i18n.defaultLocale) {
+      return cleanPath;
+    }
+    
+    // Otherwise, add prefix
+    return `/${locale}${cleanPath === '/' ? '' : cleanPath}`;
   };
 
   return (
