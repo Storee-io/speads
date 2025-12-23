@@ -37,14 +37,14 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Globe className="w-4 h-4" />
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="rounded-full px-2 font-bold text-xs">
+                  {locale.toUpperCase()}
+                  <span className="sr-only">Toggle language</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => setLocale('en')} className={locale === 'en' ? 'bg-primary/10' : ''}>
                 English
               </DropdownMenuItem>
