@@ -23,8 +23,8 @@ export function LanguageProvider({
   children: React.ReactNode, 
   initialLocale: Locale 
 }) {
-  // Use initialLocale as the source of truth from the server/URL
-  const [locale] = useState<Locale>(initialLocale);
+  // Use the prop directly to ensure reactivity when the server-determined lang changes via URL
+  const locale = initialLocale;
 
   return (
     <LanguageContext.Provider value={{ locale, t: translations[locale] }}>
