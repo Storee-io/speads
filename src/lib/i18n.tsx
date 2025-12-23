@@ -3,46 +3,31 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import en from '@/locales/en.json';
 import id from '@/locales/id.json';
+import { type Locale } from '@/i18n-config';
 
-type Locale = 'en' | 'id';
 type Translations = typeof en;
 
 interface LanguageContextType {
   locale: Locale;
   t: Translations;
-  setLocale: (locale: Locale) => void;
 }
 
 const translations = { en, id };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children, initialLocale }: { children: React.ReactNode, initialLocale?: Locale }) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale || 'en');
-
-  useEffect(() => {
-    if (!initialLocale) {
-      // Only detect if initialLocale wasn't provided by server
-      const savedLocale = document.cookie.split('; ').find(row => row.startsWith('NEXT_LOCALE='))?.split('=')[1] as Locale;
-      
-      if (savedLocale && (savedLocale === 'en' || savedLocale === 'id')) {
-        setLocaleState(savedLocale);
-      } else {
-        const browserLang = navigator.language.split('-')[0];
-        const detectedLocale: Locale = browserLang === 'id' ? 'id' : 'en';
-        setLocaleState(detectedLocale);
-        document.cookie = `NEXT_LOCALE=${detectedLocale}; path=/; max-age=31536000`;
-      }
-    }
-  }, [initialLocale]);
-
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
-  };
+export function LanguageProvider({ 
+  children, 
+  initialLocale 
+}: { 
+  children: React.ReactNode, 
+  initialLocale: Locale 
+}) {
+  // Use initialLocale as the source of truth from the server/URL
+  const [locale] = useState<Locale>(initialLocale);
 
   return (
-    <LanguageContext.Provider value={{ locale, t: translations[locale], setLocale }}>
+    <LanguageContext.Provider value={{ locale, t: translations[locale] }}>
       {children}
     </LanguageContext.Provider>
   );
