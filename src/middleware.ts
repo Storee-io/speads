@@ -4,92 +4,104 @@ import { i18n } from './i18n-config';
 import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
-function getLocale(request: NextRequest): string | undefined {
-  // 1. Check if user already has a preferred language in cookies
+/**
+ * Priority: 
+ * 1. Cookie 'NEXT_LOCALE'
+ * 2. Accept-Language Header
+ * 3. GeoIP (Vercel/Cloudflare headers)
+ * 4. Default Locale (id)
+ */
+function getLocale(request: NextRequest): string {
+  // 1. Check Cookie
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
   if (cookieLocale && i18n.locales.includes(cookieLocale as any)) {
     return cookieLocale;
   }
 
-  // 2. Check GeoIP (Optional fallback, but user wants ID prioritized)
+  // 2. Check GeoIP (Optional fallback)
   const country = request.headers.get('x-vercel-ip-country') || request.headers.get('cf-ipcountry');
   if (country === 'ID') return 'id';
 
-  // 3. Check Browser Language (Accept-Language header)
+  // 3. Check Browser Language
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales;
-  let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
   try {
-    const locale = matchLocale(languages, locales, i18n.defaultLocale);
-    return locale;
+    return matchLocale(languages, locales, i18n.defaultLocale);
   } catch (e) {
     return i18n.defaultLocale;
   }
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const { pathname } = request.nextUrl;
 
-  // // `/_next/` and `/api/` are ignored by the matcher, but we double check
+  // Skip static assets and API routes
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
-    pathname.includes('.') // favicon.ico, images, etc.
+    pathname.includes('.')
   ) {
     return;
   }
 
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  const pathnameLocale = i18n.locales.find(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
-
-    // e.g. incoming request is /products
-    // The new URL is now /en/products
-    const redirectUrl = new URL(
-      `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-      request.url
-    );
-
-    const response = NextResponse.redirect(redirectUrl);
-
-    // Persist language to cookie if it wasn't there
-    if (!request.cookies.has('NEXT_LOCALE')) {
-      response.cookies.set('NEXT_LOCALE', locale!, {
-        path: '/',
-        maxAge: 31536000,
-      });
-    }
-
+  // 1. Handle FORBIDDEN /id slug (default language must not have slug)
+  if (pathnameLocale === i18n.defaultLocale) {
+    const newPathname = pathname.replace(`/${i18n.defaultLocale}`, '') || '/';
+    const response = NextResponse.redirect(new URL(newPathname, request.url));
+    response.cookies.set('NEXT_LOCALE', i18n.defaultLocale, { path: '/', maxAge: 31536000 });
     return response;
   }
 
-  // If URL has locale prefix, ensure cookie is synced
-  const pathnameLocale = pathname.split('/')[1];
-  const response = NextResponse.next();
-  
-  if (i18n.locales.includes(pathnameLocale as any)) {
+  // 2. Handle Non-Default Locale Slug (e.g. /en)
+  if (pathnameLocale) {
+    const response = NextResponse.next();
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    
+    // Sync cookie if it differs from URL slug
     if (cookieLocale !== pathnameLocale) {
-      response.cookies.set('NEXT_LOCALE', pathnameLocale, {
-        path: '/',
-        maxAge: 31536000,
-      });
+      response.cookies.set('NEXT_LOCALE', pathnameLocale, { path: '/', maxAge: 31536000 });
     }
+    return response;
+  }
+
+  // 3. Handle No Slug (Root / or /path)
+  const preferredLocale = getLocale(request);
+
+  // If preferred locale is NOT the default, redirect to its slug
+  if (preferredLocale !== i18n.defaultLocale) {
+    const response = NextResponse.redirect(
+      new URL(`/${preferredLocale}${pathname === '/' ? '' : pathname}`, request.url)
+    );
+    // Only set cookie if it doesn't exist to prevent overriding manual choices if something went wrong
+    if (!request.cookies.has('NEXT_LOCALE')) {
+        response.cookies.set('NEXT_LOCALE', preferredLocale, { path: '/', maxAge: 31536000 });
+    }
+    return response;
+  }
+
+  // If preferred locale IS default, rewrite internally to include the slug so it matches [lang]
+  // This keeps the URL clean (no /id) while allowing the app to share code via [lang]
+  const response = NextResponse.rewrite(
+    new URL(`/${i18n.defaultLocale}${pathname}`, request.url)
+  );
+  
+  // Persist default locale to cookie on first visit
+  if (!request.cookies.has('NEXT_LOCALE')) {
+    response.cookies.set('NEXT_LOCALE', i18n.defaultLocale, { path: '/', maxAge: 31536000 });
   }
 
   return response;
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
