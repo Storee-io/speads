@@ -69,6 +69,25 @@
       }
     ]
   },
+  "targetAudience": {
+    "title": "Built for",
+    "highlight": "Ambitious Teams",
+    "satisfaction": "Client Satisfaction Rate",
+    "list": [
+      {
+        "type": "Startups",
+        "benefit": "Launch your MVP in weeks, not months, and iterate based on real user feedback at record speed."
+      },
+      {
+        "type": "Corporates",
+        "benefit": "Modernize legacy systems and build scalable internal tools that integrate seamlessly with your existing stack."
+      },
+      {
+        "type": "Entrepreneurs",
+        "benefit": "Turn your unique ideas into powerful digital products with our specialized AI-assisted development team."
+      }
+    ]
+  },
   "faq": {
     "title": "Common Questions",
     "subtitle": "Everything you need to know about our AI-powered development process.",

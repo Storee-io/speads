@@ -69,6 +69,25 @@
       }
     ]
   },
+  "targetAudience": {
+    "title": "Dibangun untuk",
+    "highlight": "Tim Ambisius",
+    "satisfaction": "Tingkat Kepuasan Klien",
+    "list": [
+      {
+        "type": "Startup",
+        "benefit": "Luncurkan MVP Anda dalam hitungan minggu, bukan bulan, dan iterasi berdasarkan masukan pengguna nyata dengan kecepatan rekor."
+      },
+      {
+        "type": "Korporasi",
+        "benefit": "Modernisasi sistem lama dan bangun alat internal skalabel yang terintegrasi mulus dengan tumpukan teknologi Anda yang ada."
+      },
+      {
+        "type": "Entrepreneur",
+        "benefit": "Ubah ide unik Anda menjadi produk digital yang kuat dengan tim pengembangan berbantuan AI khusus kami."
+      }
+    ]
+  },
   "faq": {
     "title": "Pertanyaan Umum",
     "subtitle": "Semua yang perlu Anda ketahui tentang proses pengembangan berbasis AI kami.",
