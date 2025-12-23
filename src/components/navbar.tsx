@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Cpu, Globe } from "lucide-react";
+import { Cpu } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import {
   DropdownMenu,
