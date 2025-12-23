@@ -62,29 +62,32 @@ export function Navbar() {
           <Link href={getLocalizedLink("#faq")} className="hover:text-foreground transition-colors">{t.navbar.faq}</Link>
         </div>
 
-        <div className="flex items-center gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="rounded-full px-2 font-bold text-xs uppercase">
-                {locale}
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {i18n.locales.map((loc) => (
-                <DropdownMenuItem 
-                  key={loc}
-                  onClick={() => handleLanguageChange(loc)} 
-                  className={locale === loc ? 'bg-primary/10' : ''}
-                >
-                  {loc === 'en' ? 'English' : 'Indonesia'}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Button variant="ghost" size="sm" className="hidden sm:flex rounded-full">{t.navbar.login}</Button>
-          <Button size="sm" className="rounded-full px-6">{t.navbar.getStarted}</Button>
-        </div>
+          <div className="flex items-center gap-3">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="rounded-full px-3 font-bold text-xs uppercase hover:bg-primary/5 border border-border/50">
+                  {locale}
+                  <span className="sr-only">Select language</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[8rem] rounded-xl p-1 shadow-lg border-border/50">
+                {i18n.locales.map((loc) => (
+                  <DropdownMenuItem 
+                    key={loc}
+                    onClick={() => handleLanguageChange(loc)} 
+                    className={`rounded-lg cursor-pointer ${locale === loc ? 'bg-primary/10 text-primary font-bold' : 'hover:bg-muted'}`}
+                  >
+                    <span className="flex items-center justify-between w-full">
+                      {loc === 'en' ? 'EN' : 'ID'}
+                      {locale === loc && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                    </span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Button variant="ghost" size="sm" className="hidden sm:flex rounded-full">{t.navbar.login}</Button>
+            <Button size="sm" className="rounded-full px-6">{t.navbar.getStarted}</Button>
+          </div>
       </nav>
     </motion.header>
   );
