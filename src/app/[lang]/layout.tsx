@@ -21,7 +21,9 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { lang } = await params;
   
-  // Base metadata from parent or hardcoded
+  // Replace with your actual domain
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://speads.id';
+  
   return {
     title: lang === 'id' 
       ? "Speads | Agensi Pengembangan Software Berbasis AI" 
@@ -30,11 +32,11 @@ export async function generateMetadata(
       ? "Bangun website, aplikasi, dan software kustom 10x lebih cepat dan murah dengan pengembangan berbantuan AI. Dari startup hingga korporat, kami mewujudkan visi Anda."
       : "Build websites, apps, and custom software 10x faster and cheaper with AI-assisted development. From startups to corporates, we scale your vision.",
     alternates: {
-      canonical: `/${lang}`,
+      canonical: lang === i18n.defaultLocale ? baseUrl : `${baseUrl}/${lang}`,
       languages: {
-        'en-US': '/en',
-        'id-ID': '/id',
-        'x-default': '/id',
+        'id-ID': baseUrl, // Default language at root
+        'en-US': `${baseUrl}/en`,
+        'x-default': baseUrl,
       },
     },
   };
@@ -58,6 +60,7 @@ export default async function RootLayout({
           />
           <ErrorReporter />
           <Script
+            id="route-messenger"
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
             strategy="afterInteractive"
             data-target-origin="*"
@@ -65,7 +68,7 @@ export default async function RootLayout({
             data-include-search-params="true"
             data-only-in-iframe="true"
             data-debug="true"
-            data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
+            data-custom-data='{"appName": "Speads", "version": "1.0.0"}'
           />
           {children}
           <VisualEditsMessenger />
