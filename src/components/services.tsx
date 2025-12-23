@@ -72,8 +72,9 @@ export function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-900 transition-all duration-300 group shadow-2xl">
-                  <CardHeader>
+                <Card className="h-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-900 hover:border-indigo-500/50 transition-all duration-300 group shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <CardHeader className="relative">
                     <div className={`w-12 h-12 rounded-xl ${service.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <service.icon className={`w-6 h-6 ${service.color}`} />
                     </div>
