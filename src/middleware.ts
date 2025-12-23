@@ -19,13 +19,17 @@ function getLocale(request: NextRequest): string | undefined {
   const locales: string[] = i18n.locales;
   let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
 
+  // 3. GeoIP Fallback
+  const country = request.headers.get('x-vercel-ip-country') || request.headers.get('cf-ipcountry');
+  
   try {
+    // If the user is in Indonesia, we might want to prioritize 'id' 
+    // especially if they complained it's not working.
+    if (country === 'ID') return 'id';
+
     const locale = matchLocale(languages, locales, i18n.defaultLocale);
     return locale;
   } catch (e) {
-    // 3. Fallback to GeoIP if matchLocale fails or doesn't find a match
-    const country = request.headers.get('x-vercel-ip-country');
-    if (country === 'ID') return 'id';
     return i18n.defaultLocale;
   }
 }
