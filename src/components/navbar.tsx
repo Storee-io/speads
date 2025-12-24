@@ -68,19 +68,31 @@ export function Navbar() {
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4"
     >
-      <nav className="flex items-center justify-between w-full max-w-7xl px-6 py-3 bg-slate-900/50 backdrop-blur-md rounded-full border border-slate-800 shadow-2xl">
+      <nav className="flex items-center justify-between w-full max-w-7xl px-6 py-3 bg-slate-900/50 backdrop-blur-xl rounded-full border border-slate-800 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
         <Link href={getLocalizedLink("/")} className="flex items-center gap-2 group">
-          <div className="bg-gradient-to-br from-indigo-500 to-cyan-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-indigo-500/20">
+          <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-indigo-500/20">
             <Cpu className="w-5 h-5 text-white" />
           </div>
-          <span className="font-heading text-xl font-bold tracking-tight text-white">Speads</span>
+          <span className="font-heading text-xl font-bold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400">Speads</span>
         </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-          <Link href={getLocalizedLink("#services")} className="hover:text-cyan-400 transition-colors">{t.navbar.services}</Link>
-          <Link href={getLocalizedLink("#how-it-works")} className="hover:text-cyan-400 transition-colors">{t.navbar.howItWorks}</Link>
-          <Link href={getLocalizedLink("#pricing")} className="hover:text-cyan-400 transition-colors">{t.navbar.pricing}</Link>
-          <Link href={getLocalizedLink("#faq")} className="hover:text-cyan-400 transition-colors">{t.navbar.faq}</Link>
+          <Link href={getLocalizedLink("#services")} className="hover:text-cyan-400 transition-colors relative group">
+            {t.navbar.services}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+          </Link>
+          <Link href={getLocalizedLink("#how-it-works")} className="hover:text-cyan-400 transition-colors relative group">
+            {t.navbar.howItWorks}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+          </Link>
+          <Link href={getLocalizedLink("#pricing")} className="hover:text-cyan-400 transition-colors relative group">
+            {t.navbar.pricing}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+          </Link>
+          <Link href={getLocalizedLink("#faq")} className="hover:text-cyan-400 transition-colors relative group">
+            {t.navbar.faq}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full" />
+          </Link>
         </div>
 
           <div className="flex items-center gap-3">
