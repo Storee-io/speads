@@ -9,53 +9,78 @@ import { useTranslation } from "@/lib/i18n";
 function SpeedLines() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 opacity-[0.2]">
-        {[...Array(30)].map((_, i) => (
+      <div className="absolute inset-0 opacity-[0.3]">
+        {/* Distant slow stars/dots */}
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={`dot-${i}`}
+            className="absolute w-[2px] h-[2px] rounded-full bg-white"
+            style={{
+              left: "-10%",
+              top: `${Math.random() * 100}%`,
+              opacity: 0.1 + Math.random() * 0.4,
+            }}
+            animate={{
+              left: ["-10%", "110%"],
+            }}
+            transition={{
+              duration: 10 + Math.random() * 20,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * -20,
+            }}
+          />
+        ))}
+
+        {/* Medium speed lines */}
+        {[...Array(40)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
+            className="absolute h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"
             style={{
               left: "-20%",
-              width: "40%",
+              width: "50%",
               top: `${Math.random() * 100}%`,
-              opacity: 0.2 + Math.random() * 0.5,
+              opacity: 0.3 + Math.random() * 0.4,
             }}
             animate={{
               left: ["-20%", "120%"],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 1 + Math.random() * 2,
+              duration: 2 + Math.random() * 3,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5,
+              delay: Math.random() * -5,
             }}
           />
         ))}
-        {/* Faster, thinner lines for "warp" effect */}
-        {[...Array(20)].map((_, i) => (
+
+        {/* Warp speed / highlight lines */}
+        {[...Array(25)].map((_, i) => (
           <motion.div
             key={`fast-${i}`}
-            className="absolute h-[0.5px] bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
+            className="absolute h-[2px] bg-gradient-to-r from-transparent via-indigo-400 to-transparent shadow-[0_0_10px_rgba(79,70,229,0.5)]"
             style={{
-              left: "-50%",
-              width: "60%",
+              left: "-100%",
+              width: "80%",
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              left: ["-50%", "150%"],
+              left: ["-100%", "200%"],
             }}
             transition={{
-              duration: 0.5 + Math.random() * 1,
+              duration: 0.8 + Math.random() * 1.5,
               repeat: Infinity,
               ease: "circIn",
-              delay: Math.random() * 3,
+              delay: Math.random() * -3,
             }}
           />
         ))}
       </div>
-      {/* Light streaks */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.05),transparent_50%)]" />
+      {/* Light streaks and depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.08),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.05),transparent_40%)]" />
     </div>
   );
 }
