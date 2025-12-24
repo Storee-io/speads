@@ -9,28 +9,53 @@ import { useTranslation } from "@/lib/i18n";
 function SpeedLines() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 opacity-[0.15]">
-        {[...Array(20)].map((_, i) => (
+      <div className="absolute inset-0 opacity-[0.2]">
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+            className="absolute h-[1px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
             style={{
               left: "-20%",
               width: "40%",
               top: `${Math.random() * 100}%`,
+              opacity: 0.2 + Math.random() * 0.5,
             }}
             animate={{
               left: ["-20%", "120%"],
+              opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 2 + Math.random() * 3,
+              duration: 1 + Math.random() * 2,
               repeat: Infinity,
               ease: "linear",
               delay: Math.random() * 5,
             }}
           />
         ))}
+        {/* Faster, thinner lines for "warp" effect */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={`fast-${i}`}
+            className="absolute h-[0.5px] bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
+            style={{
+              left: "-50%",
+              width: "60%",
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              left: ["-50%", "150%"],
+            }}
+            transition={{
+              duration: 0.5 + Math.random() * 1,
+              repeat: Infinity,
+              ease: "circIn",
+              delay: Math.random() * 3,
+            }}
+          />
+        ))}
       </div>
+      {/* Light streaks */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.05),transparent_50%)]" />
     </div>
   );
 }
