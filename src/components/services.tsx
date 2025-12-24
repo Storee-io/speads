@@ -53,43 +53,49 @@ export function Services() {
       },
     ];
 
-    return (
-      <section id="services" className="py-24 bg-slate-950">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-white">{t.services.title}</h2>
-            <p className="text-lg text-zinc-400">
-              {t.services.subtitle}
-            </p>
+      return (
+        <section id="services" className="py-24 relative overflow-hidden">
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                {t.services.title}
+              </h2>
+              <p className="text-lg text-zinc-400">
+                {t.services.subtitle}
+              </p>
+            </div>
+  
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="h-full border border-slate-800 bg-slate-900/40 backdrop-blur-md hover:bg-slate-900/60 hover:border-indigo-500/50 transition-all duration-500 group shadow-2xl relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute -right-8 -top-8 w-24 h-24 bg-indigo-500/10 blur-2xl rounded-full group-hover:bg-indigo-500/20 transition-all duration-500" />
+                    
+                    <CardHeader className="relative">
+                      <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-inner`}>
+                        <service.icon className={`w-7 h-7 ${service.color}`} />
+                      </div>
+                      <CardTitle className="font-heading text-2xl text-white group-hover:text-indigo-400 transition-colors duration-300">
+                        {service.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="relative">
+                      <CardDescription className="text-base leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-900 hover:border-indigo-500/50 transition-all duration-300 group shadow-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <CardHeader className="relative">
-                    <div className={`w-12 h-12 rounded-xl ${service.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className={`w-6 h-6 ${service.color}`} />
-                    </div>
-                    <CardTitle className="font-heading text-xl text-white">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base leading-relaxed text-zinc-400">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
+        </section>
+      );
   }
