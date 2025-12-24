@@ -6,14 +6,44 @@ import { ArrowRight, Zap, Rocket } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 
+function SpeedLines() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.15]">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+            style={{
+              left: "-20%",
+              width: "40%",
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              left: ["-20%", "120%"],
+            }}
+            transition={{
+              duration: 2 + Math.random() * 3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   const { t } = useTranslation();
 
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-950">
+      <SpeedLines />
       {/* Background elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/20 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-cyan-500/10 blur-[100px] rounded-full" />
       </div>
 
