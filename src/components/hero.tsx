@@ -144,6 +144,33 @@ function BottomTransition() {
           />
         );
       })}
+
+      {/* NEW: Dense White Speed Animation at the bottom 60px */}
+      {[...Array(40)].map((_, i) => {
+        return (
+          <motion.div
+            key={`bottom-white-speed-${i}`}
+            className="absolute h-[2px] bg-white shadow-[0_0_20px_rgba(255,255,255,0.8)]"
+            style={{
+              top: `${80 + Math.random() * 20}%`, // Range: bottom 60px of 300px (80% to 100%)
+              left: "-30%",
+              width: `${200 + Math.random() * 500}px`,
+              opacity: 0.4 + Math.random() * 0.6,
+            }}
+            animate={{
+              left: ["-30%", "130%"],
+              opacity: [0, 1, 1, 0],
+              scaleX: [1, 5, 1],
+            }}
+            transition={{
+              duration: 0.1 + Math.random() * 0.3,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * -2,
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
