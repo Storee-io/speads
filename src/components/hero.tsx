@@ -89,7 +89,7 @@ function BottomTransition() {
   return (
     <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none z-20">
       {/* White gradient to bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[20px] bg-gradient-to-t from-white to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-t from-white to-transparent z-10" />
       {/* Dense Horizontal Speed Lines - more at the bottom */}
       {[...Array(60)].map((_, i) => {
         const bottomBias = Math.pow(Math.random(), 0.5); // Bias towards 1 (bottom)
