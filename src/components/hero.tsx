@@ -180,15 +180,19 @@ export function Hero() {
 
   return (
     <section className="relative pt-32 pb-48 lg:pt-48 lg:pb-64 overflow-hidden bg-slate-950 group">
-      <SpeedLines />
-      <BottomTransition />
-      {/* Background elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-10 pointer-events-none">
+      {/* Layer 1: Speed Animation */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <SpeedLines />
+        <BottomTransition />
+      </div>
+
+      {/* Layer 2: Background Blobs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full z-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-cyan-500/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="container mx-auto px-6 text-center">
+      <div className="container relative z-20 mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
