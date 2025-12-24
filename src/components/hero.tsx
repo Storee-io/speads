@@ -88,54 +88,60 @@ function SpeedLines() {
 function BottomTransition() {
   return (
     <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none z-20">
-      {/* Intense Horizontal Speed Lines at the bottom */}
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={`bottom-fast-${i}`}
-          className="absolute h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300 to-white shadow-[0_0_8px_rgba(255,255,255,0.6)]"
-          style={{
-            top: `${70 + Math.random() * 30}%`,
-            left: "-20%",
-            width: `${100 + Math.random() * 300}px`,
-            opacity: 0.2 + Math.random() * 0.8,
-          }}
-          animate={{
-            left: ["-20%", "120%"],
-            opacity: [0, 1, 0.8, 0],
-            scaleX: [1, 3, 1],
-          }}
-          transition={{
-            duration: 0.3 + Math.random() * 0.5,
-            repeat: Infinity,
-            ease: "circIn",
-            delay: Math.random() * -2,
-          }}
-        />
-      ))}
+      {/* Dense Horizontal Speed Lines - more at the bottom */}
+      {[...Array(60)].map((_, i) => {
+        const bottomBias = Math.pow(Math.random(), 0.5); // Bias towards 1 (bottom)
+        return (
+          <motion.div
+            key={`bottom-fast-${i}`}
+            className="absolute h-[1px] md:h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/40 to-white/60 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+            style={{
+              top: `${50 + bottomBias * 50}%`,
+              left: "-20%",
+              width: `${100 + Math.random() * 400}px`,
+              opacity: 0.1 + Math.random() * 0.7,
+            }}
+            animate={{
+              left: ["-20%", "120%"],
+              opacity: [0, 1, 0.8, 0],
+              scaleX: [1, 4, 1],
+            }}
+            transition={{
+              duration: 0.2 + Math.random() * 0.4,
+              repeat: Infinity,
+              ease: "circIn",
+              delay: Math.random() * -3,
+            }}
+          />
+        );
+      })}
 
-      {/* Extreme Horizontal Speed Bursts */}
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={`bottom-burst-${i}`}
-          className="absolute h-[2.5px] bg-gradient-to-r from-transparent via-indigo-400 to-white shadow-[0_0_15px_rgba(255,255,255,0.8)]"
-          style={{
-            top: `${80 + Math.random() * 20}%`,
-            left: "-50%",
-            width: `${300 + Math.random() * 500}px`,
-          }}
-          animate={{
-            left: ["-50%", "150%"],
-            opacity: [0, 0.9, 0],
-            scaleX: [1, 5, 1],
-          }}
-          transition={{
-            duration: 0.2 + Math.random() * 0.3,
-            repeat: Infinity,
-            ease: "circIn",
-            delay: Math.random() * -1,
-          }}
-        />
-      ))}
+      {/* Frequent Extreme Horizontal Speed Bursts at the very bottom */}
+      {[...Array(25)].map((_, i) => {
+        const bottomBias = Math.pow(Math.random(), 0.3); // Heavy bias towards bottom
+        return (
+          <motion.div
+            key={`bottom-burst-${i}`}
+            className="absolute h-[2px] md:h-[3px] bg-gradient-to-r from-transparent via-indigo-500/50 to-white shadow-[0_0_15px_rgba(255,255,255,0.6)]"
+            style={{
+              top: `${70 + bottomBias * 30}%`,
+              left: "-50%",
+              width: `${400 + Math.random() * 600}px`,
+            }}
+            animate={{
+              left: ["-50%", "150%"],
+              opacity: [0, 0.8, 0],
+              scaleX: [1, 6, 1],
+            }}
+            transition={{
+              duration: 0.15 + Math.random() * 0.25,
+              repeat: Infinity,
+              ease: "circIn",
+              delay: Math.random() * -2,
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
