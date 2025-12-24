@@ -136,13 +136,6 @@ function BottomTransition() {
           }}
         />
       ))}
-
-      {/* Brightness Gradient to White (Next Section) */}
-      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-white via-white/40 to-transparent opacity-95 translate-y-[10%] group-hover:translate-y-0 transition-transform duration-1000" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/10 to-transparent" />
-      
-      {/* White flare at the very bottom edge */}
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-white blur-3xl opacity-50" />
     </div>
   );
 }
