@@ -151,7 +151,7 @@ export function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative pt-32 pb-48 lg:pt-48 lg:pb-64 overflow-hidden bg-slate-950">
+    <section className="relative pt-32 pb-48 lg:pt-48 lg:pb-64 overflow-hidden bg-slate-950 group">
       <SpeedLines />
       <BottomTransition />
       {/* Background elements */}
