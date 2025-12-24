@@ -87,7 +87,7 @@ function SpeedLines() {
 
 function BottomTransition() {
   return (
-    <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none z-20">
+    <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none">
       {/* White gradient to bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-t from-white to-transparent z-10" />
       {/* Dense Horizontal Speed Lines - more at the bottom */}
