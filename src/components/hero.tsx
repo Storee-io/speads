@@ -88,6 +88,8 @@ function SpeedLines() {
 function BottomTransition() {
   return (
     <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none z-20">
+      {/* White gradient to bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-10" />
       {/* Dense Horizontal Speed Lines - more at the bottom */}
       {[...Array(60)].map((_, i) => {
         const bottomBias = Math.pow(Math.random(), 0.5); // Bias towards 1 (bottom)
