@@ -33,25 +33,26 @@ export function Process() {
             <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-slate-800 -z-10" />
             
             {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className={`w-24 h-24 rounded-full ${step.color} text-white flex items-center justify-center mb-6 shadow-2xl relative shadow-indigo-500/20`}>
-                  <step.icon className="w-10 h-10" />
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-white">
-                    {index + 1}
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className={`w-24 h-24 rounded-3xl ${step.color} text-white flex items-center justify-center mb-6 shadow-2xl relative shadow-indigo-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                    <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-[2px]" />
+                    <step.icon className="w-10 h-10 relative z-10" />
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-sm font-bold text-white z-20">
+                      {index + 1}
+                    </div>
                   </div>
-                </div>
-                <h3 className="font-heading text-xl font-bold mb-3 text-white">{step.title}</h3>
-                <p className="text-zinc-400 leading-relaxed italic">
-                  {step.description}
-                </p>
-              </motion.div>
+                  <h3 className="font-heading text-xl font-bold mb-3 text-white group-hover:text-indigo-400 transition-colors">{step.title}</h3>
+                  <p className="text-zinc-400 leading-relaxed italic px-4 group-hover:text-zinc-300 transition-colors">
+                    {step.description}
+                  </p>
+                </motion.div>
             ))}
           </div>
         </div>
