@@ -87,25 +87,25 @@ function SpeedLines() {
 
 function BottomTransition() {
   return (
-    <div className="absolute bottom-0 left-0 right-0 h-[400px] overflow-hidden pointer-events-none z-20">
-      {/* Intense Speed Lines at the bottom */}
-      {[...Array(40)].map((_, i) => (
+    <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none z-20">
+      {/* Intense Horizontal Speed Lines at the bottom */}
+      {[...Array(30)].map((_, i) => (
         <motion.div
           key={`bottom-fast-${i}`}
-          className="absolute w-[1.5px] bg-gradient-to-t from-white via-cyan-300 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.6)]"
+          className="absolute h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300 to-white shadow-[0_0_8px_rgba(255,255,255,0.6)]"
           style={{
-            left: `${Math.random() * 100}%`,
-            bottom: "-20%",
-            height: `${80 + Math.random() * 200}px`,
-            opacity: 0.3 + Math.random() * 0.7,
+            top: `${70 + Math.random() * 30}%`,
+            left: "-20%",
+            width: `${100 + Math.random() * 300}px`,
+            opacity: 0.2 + Math.random() * 0.8,
           }}
           animate={{
-            bottom: ["-20%", "120%"],
+            left: ["-20%", "120%"],
             opacity: [0, 1, 0.8, 0],
-            scaleY: [1, 2.5, 1],
+            scaleX: [1, 3, 1],
           }}
           transition={{
-            duration: 0.4 + Math.random() * 0.4,
+            duration: 0.3 + Math.random() * 0.5,
             repeat: Infinity,
             ease: "circIn",
             delay: Math.random() * -2,
@@ -113,20 +113,20 @@ function BottomTransition() {
         />
       ))}
 
-      {/* Extreme Speed Bursts */}
-      {[...Array(15)].map((_, i) => (
+      {/* Extreme Horizontal Speed Bursts */}
+      {[...Array(12)].map((_, i) => (
         <motion.div
           key={`bottom-burst-${i}`}
-          className="absolute w-[3px] bg-gradient-to-t from-white via-indigo-400 to-transparent shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+          className="absolute h-[2.5px] bg-gradient-to-r from-transparent via-indigo-400 to-white shadow-[0_0_15px_rgba(255,255,255,0.8)]"
           style={{
-            left: `${Math.random() * 100}%`,
-            bottom: "-10%",
-            height: `${200 + Math.random() * 300}px`,
+            top: `${80 + Math.random() * 20}%`,
+            left: "-50%",
+            width: `${300 + Math.random() * 500}px`,
           }}
           animate={{
-            bottom: ["-10%", "150%"],
-            opacity: [0, 0.8, 0],
-            scaleY: [1, 4, 1],
+            left: ["-50%", "150%"],
+            opacity: [0, 0.9, 0],
+            scaleX: [1, 5, 1],
           }}
           transition={{
             duration: 0.2 + Math.random() * 0.3,
@@ -138,11 +138,11 @@ function BottomTransition() {
       ))}
 
       {/* Brightness Gradient to White (Next Section) */}
-      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-white via-white/50 to-transparent opacity-95 translate-y-[20%] group-hover:translate-y-0 transition-transform duration-1000" />
-      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/20 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-white via-white/40 to-transparent opacity-95 translate-y-[10%] group-hover:translate-y-0 transition-transform duration-1000" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/10 to-transparent" />
       
       {/* White flare at the very bottom edge */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-white blur-3xl opacity-40" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-white blur-3xl opacity-50" />
     </div>
   );
 }
