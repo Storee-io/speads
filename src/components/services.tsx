@@ -54,13 +54,13 @@ export function Services() {
     ];
 
       return (
-        <section id="services" className="py-24 relative overflow-hidden">
+        <section id="services" className="py-24 relative overflow-hidden bg-white">
           <div className="container mx-auto px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
                 {t.services.title}
               </h2>
-              <p className="text-lg text-zinc-400">
+              <p className="text-lg text-slate-600">
                 {t.services.subtitle}
               </p>
             </div>
@@ -74,20 +74,19 @@ export function Services() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full border border-slate-800 bg-slate-900/40 backdrop-blur-md hover:bg-slate-900/60 hover:border-indigo-500/50 transition-all duration-500 group shadow-2xl relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute -right-8 -top-8 w-24 h-24 bg-indigo-500/10 blur-2xl rounded-full group-hover:bg-indigo-500/20 transition-all duration-500" />
+                  <Card className="h-full border border-slate-200 bg-white hover:bg-zinc-50 hover:border-indigo-500/50 transition-all duration-500 group shadow-lg relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <CardHeader className="relative">
-                      <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-inner`}>
+                      <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm`}>
                         <service.icon className={`w-7 h-7 ${service.color}`} />
                       </div>
-                      <CardTitle className="font-heading text-2xl text-white group-hover:text-indigo-400 transition-colors duration-300">
+                      <CardTitle className="font-heading text-2xl text-slate-900 group-hover:text-indigo-600 transition-colors duration-300">
                         {service.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="relative">
-                      <CardDescription className="text-base leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
+                      <CardDescription className="text-base leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
                         {service.description}
                       </CardDescription>
                     </CardContent>
