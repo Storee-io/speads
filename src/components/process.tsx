@@ -41,8 +41,8 @@ export function Process() {
                     viewport={{ once: true }}
                     className="flex flex-col items-center text-center group"
                   >
-                    <div className={`w-24 h-24 rounded-3xl ${step.color} text-white flex items-center justify-center mb-6 shadow-xl relative shadow-indigo-500/10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                      <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-[2px]" />
+                  <div className={`w-24 h-24 rounded-full ${step.color} text-white flex items-center justify-center mb-6 shadow-xl relative shadow-indigo-500/10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                    <div className="absolute inset-0 bg-white/10 rounded-full backdrop-blur-[2px]" />
                       <step.icon className="w-10 h-10 relative z-10" />
                       <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white border border-zinc-100 flex items-center justify-center text-sm font-bold text-slate-900 z-20 shadow-sm">
                         {index + 1}
