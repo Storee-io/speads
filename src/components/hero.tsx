@@ -131,7 +131,7 @@ function BottomTransition() {
           transition={{
             duration: 0.2 + Math.random() * 0.3,
             repeat: Infinity,
-            ease: "power4.in",
+            ease: "circIn",
             delay: Math.random() * -1,
           }}
         />
