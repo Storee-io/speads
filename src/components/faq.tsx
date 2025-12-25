@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -13,7 +14,13 @@ export function FAQ() {
 
       return (
         <section id="faq" className="py-24 bg-zinc-50">
-          <div className="container mx-auto px-6 max-w-4xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="container mx-auto px-6 max-w-4xl"
+          >
             <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-slate-900">{t.faq.title}</h2>
               <p className="text-lg text-slate-600">
@@ -37,7 +44,7 @@ export function FAQ() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </motion.div>
         </section>
       );
   }
