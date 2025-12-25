@@ -1,5 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import VisualEditsMessenger from "../../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
