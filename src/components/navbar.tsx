@@ -78,23 +78,23 @@ export function Navbar() {
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-4"
     >
-      <nav className={`flex items-center justify-between w-full max-w-7xl px-6 py-3 transition-all duration-200 rounded-full border shadow-[0_8px_32px_rgba(0,0,0,0.5)] ${
+      <nav className={`flex items-center justify-between w-full max-w-7xl px-6 py-3 transition-all duration-0 rounded-full border shadow-[0_8px_32px_rgba(0,0,0,0.5)] ${
         isScrolled 
           ? "bg-white/80 backdrop-blur-xl border-slate-200 shadow-slate-200/50" 
           : "bg-slate-900/50 backdrop-blur-xl border-slate-800 shadow-black/50"
       }`}>
         <Link href={getLocalizedLink("/")} className="flex items-center gap-2 group">
-          <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-200 shadow-lg shadow-indigo-500/20">
+          <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-0 shadow-lg shadow-indigo-500/20">
             <Cpu className="w-5 h-5 text-white" />
           </div>
-          <span className={`font-heading text-xl font-bold tracking-tight bg-clip-text text-transparent transition-all duration-200 ${
+          <span className={`font-heading text-xl font-bold tracking-tight bg-clip-text text-transparent transition-all duration-0 ${
             isScrolled 
               ? "bg-gradient-to-r from-slate-900 to-slate-600" 
               : "bg-gradient-to-r from-white to-zinc-400"
           }`}>Speads</span>
         </Link>
         
-        <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors duration-200 ${
+        <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors duration-0 ${
           isScrolled ? "text-slate-600" : "text-zinc-400"
         }`}>
           <Link href={getLocalizedLink("#services")} className={`transition-colors relative group ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}>
@@ -118,7 +118,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className={`rounded-full px-3 font-bold text-xs uppercase transition-all duration-200 border ${
+                <Button variant="ghost" size="sm" className={`rounded-full px-3 font-bold text-xs uppercase transition-all duration-0 border ${
                   isScrolled 
                     ? "border-slate-200 text-slate-600 hover:bg-slate-100" 
                     : "border-slate-800 text-zinc-300 hover:bg-white/5"
@@ -127,7 +127,7 @@ export function Navbar() {
                   <span className="sr-only">Select language</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className={`min-w-[8rem] rounded-xl p-1 shadow-2xl backdrop-blur-lg border transition-all duration-200 ${
+              <DropdownMenuContent align="end" className={`min-w-[8rem] rounded-xl p-1 shadow-2xl backdrop-blur-lg border transition-all duration-0 ${
                 isScrolled 
                   ? "bg-white/90 border-slate-200 shadow-slate-200/50" 
                   : "bg-slate-900/90 border-slate-800"
@@ -150,7 +150,7 @@ export function Navbar() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button variant="ghost" size="sm" className={`hidden sm:flex rounded-full transition-colors duration-200 ${
+            <Button variant="ghost" size="sm" className={`hidden sm:flex rounded-full transition-colors duration-0 ${
               isScrolled 
                 ? "text-slate-600 hover:text-indigo-600 hover:bg-slate-100" 
                 : "text-zinc-300 hover:text-white hover:bg-white/5"
