@@ -95,6 +95,14 @@ function SpeedLines() {
 }
 
 function BottomTransition() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none">
       {/* White gradient to bottom */}
