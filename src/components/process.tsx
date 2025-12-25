@@ -33,14 +33,14 @@ export function Process() {
               <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-zinc-200 -z-10" />
               
               {steps.map((step, index) => (
-                  <motion.div
-                    key={step.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex flex-col items-center text-center group"
-                  >
+                    <motion.div
+                      key={step.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      className="flex flex-col items-center text-center group"
+                    >
                   <div className={`w-24 h-24 rounded-full ${step.color} text-white flex items-center justify-center mb-6 shadow-xl relative shadow-indigo-500/10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
                     <div className="absolute inset-0 bg-white/10 rounded-full backdrop-blur-[2px]" />
                       <step.icon className="w-10 h-10 relative z-10" />
