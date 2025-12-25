@@ -54,7 +54,7 @@ export function Services() {
     ];
 
       return (
-        <section id="services" className="py-24 relative overflow-hidden bg-white">
+          <section id="services" className="py-24 relative z-20 bg-white transform-gpu">
           <div className="container mx-auto px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
