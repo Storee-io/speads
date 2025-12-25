@@ -52,14 +52,14 @@ export function TargetAudience() {
                 </div>
               </div>
               
-              <div className="lg:w-1/2 relative">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="grid grid-cols-2 gap-4"
-                >
+                <div className="lg:w-1/2 relative">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid grid-cols-2 gap-4"
+                  >
                   <div className="space-y-4 pt-12">
                     <Image
                       src={audiences[0].image}
