@@ -123,6 +123,7 @@ function BottomTransition() {
   const [whiteLines, setWhiteLines] = useState<any[]>([]);
 
   useEffect(() => {
+    setMounted(true);
     setLines([...Array(60)].map((_, i) => ({
       top: `${50 + Math.pow(Math.random(), 0.5) * 50}%`,
       width: `${100 + Math.random() * 400}px`,
@@ -145,11 +146,9 @@ function BottomTransition() {
       duration: 0.1 + Math.random() * 0.3,
       delay: Math.random() * -2,
     })));
-
-    setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none" />;
 
   return (
     <div className="absolute bottom-0 left-0 right-0 h-[300px] overflow-hidden pointer-events-none">
