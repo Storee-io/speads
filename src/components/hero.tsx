@@ -14,6 +14,7 @@ function SpeedLines() {
   const [fastLines, setFastLines] = useState<any[]>([]);
 
   useEffect(() => {
+    setMounted(true);
     setDots([...Array(50)].map((_, i) => ({
       top: `${Math.random() * 100}%`,
       opacity: 0.1 + Math.random() * 0.4,
@@ -33,11 +34,9 @@ function SpeedLines() {
       duration: 0.8 + Math.random() * 1.5,
       delay: Math.random() * -3,
     })));
-
-    setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div className="absolute inset-0 overflow-hidden pointer-events-none" />;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
