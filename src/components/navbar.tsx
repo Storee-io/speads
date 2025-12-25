@@ -59,17 +59,28 @@ export function Navbar() {
     router.push(newPath);
   };
 
-  // Helper to get localized link
-  const getLocalizedLink = (path: string) => {
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  // Helper to handle smooth scroll for hash links
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    // Only handle if it's a hash link on the current page
+    const isCurrentPage = pathname === getLocalizedLink("/") || pathname === getLocalizedLink("");
     
-    // If locale is default, no prefix
-    if (locale === i18n.defaultLocale) {
-      return cleanPath;
+    if (hash.startsWith("#") && isCurrentPage) {
+      e.preventDefault();
+      const element = document.getElementById(hash.replace("#", ""));
+      if (element) {
+        const offset = 80; // Account for navbar height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+        
+        // Update URL hash without jumping
+        window.history.pushState(null, "", hash);
+      }
     }
-    
-    // Otherwise, add prefix
-    return `/${locale}${cleanPath === '/' ? '' : cleanPath}`;
   };
 
   return (
@@ -97,22 +108,38 @@ export function Navbar() {
         <div className={`hidden md:flex items-center gap-8 text-sm font-semibold ${
           isScrolled ? "text-slate-900" : "text-white"
         }`}>
-          <Link href={getLocalizedLink("#services")} className={`relative group ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}>
+          <a 
+            href="#services" 
+            onClick={(e) => handleScrollTo(e, "#services")}
+            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+          >
             {t.navbar.services}
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </Link>
-          <Link href={getLocalizedLink("#how-it-works")} className={`relative group ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}>
+          </a>
+          <a 
+            href="#how-it-works" 
+            onClick={(e) => handleScrollTo(e, "#how-it-works")}
+            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+          >
             {t.navbar.howItWorks}
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </Link>
-          <Link href={getLocalizedLink("#pricing")} className={`relative group ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}>
+          </a>
+          <a 
+            href="#pricing" 
+            onClick={(e) => handleScrollTo(e, "#pricing")}
+            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+          >
             {t.navbar.pricing}
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </Link>
-          <Link href={getLocalizedLink("#faq")} className={`relative group ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}>
+          </a>
+          <a 
+            href="#faq" 
+            onClick={(e) => handleScrollTo(e, "#faq")}
+            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+          >
             {t.navbar.faq}
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </Link>
+          </a>
         </div>
 
           <div className="flex items-center gap-3">
