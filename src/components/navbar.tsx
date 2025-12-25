@@ -29,6 +29,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getLocalizedLink = (path: string) => {
+    if (locale === i18n.defaultLocale) return path === "" ? "/" : path;
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    return `/${locale}${cleanPath === "/" ? "" : cleanPath}` || `/${locale}`;
+  };
+
   const handleLanguageChange = (newLocale: string) => {
     if (!pathname) return;
     
