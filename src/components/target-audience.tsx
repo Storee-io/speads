@@ -20,9 +20,10 @@ export function TargetAudience() {
     };
   });
 
-      return (
-        <section className="py-24 overflow-hidden bg-white">
-          <div className="container mx-auto px-6">
+        return (
+          <section id="pricing" className="py-24 overflow-hidden bg-white">
+            <div className="container mx-auto px-6">
+
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="lg:w-1/2">
                 <h2 className="font-heading text-3xl md:text-5xl font-bold mb-8 leading-tight text-slate-900">
