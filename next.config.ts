@@ -5,6 +5,7 @@ const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -15,6 +16,9 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+  },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion", "@tabler/icons-react"],
   },
   outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
