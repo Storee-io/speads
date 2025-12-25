@@ -29,15 +29,15 @@ export function TargetAudience() {
                   {t.targetAudience.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">{t.targetAudience.highlight}</span>
                 </h2>
                 <div className="space-y-8">
-                  {audiences.map((item, index) => (
-                    <motion.div
-                      key={item.type}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex gap-4"
-                    >
+                    {audiences.map((item, index) => (
+                      <motion.div
+                        key={item.type}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="flex gap-4"
+                      >
                       <div className="mt-1">
                         <CheckCircle2 className="w-6 h-6 text-indigo-600" />
                       </div>
