@@ -4,11 +4,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Cpu, Github, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
+import { useContactModal } from "./contact-modal-context";
 
 export function Footer() {
   const { t } = useTranslation();
+  const { openContactModal } = useContactModal();
 
-    return (
+  return (
       <footer className="bg-slate-950 text-zinc-400 py-20">
         <div className="container mx-auto px-6">
           <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 rounded-3xl p-8 md:p-16 mb-20 text-center relative overflow-hidden shadow-2xl">
