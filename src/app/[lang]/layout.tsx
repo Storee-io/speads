@@ -53,8 +53,10 @@ export default async function RootLayout({
         <html lang={lang} className="scroll-smooth dark" suppressHydrationWarning>
           <body className="font-sans antialiased bg-slate-950 text-zinc-100 selection:bg-indigo-500/30">
         <LanguageProvider initialLocale={lang}>
-          <Script
-            id="orchids-browser-logs"
+          <ContactModalProvider>
+            <Script
+              id="orchids-browser-logs"
+
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts/orchids-browser-logs.js"
             strategy="afterInteractive"
             data-orchids-project-id="34d98f4a-1f34-4ce6-88f7-adf01ee0e5f6"
