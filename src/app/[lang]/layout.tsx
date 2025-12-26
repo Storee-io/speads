@@ -5,6 +5,7 @@ import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import { LanguageProvider } from "@/lib/i18n";
 import { i18n, type Locale } from "@/i18n-config";
+import { ContactModalProvider } from "@/components/contact-modal-context";
 
 type Props = {
   params: Promise<{ lang: Locale }>;
