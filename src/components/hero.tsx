@@ -268,12 +268,18 @@ export function Hero() {
             {t.hero.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
-              {t.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-
-          </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <a 
+                href="https://api.whatsapp.com/send?phone=6289611117575&text=Halo%20Speads%2C%20saya%20ingin%20konsultasi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
+                  {t.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+            </div>
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 grayscale opacity-30 contrast-125">
             {/* Mock logos */}
