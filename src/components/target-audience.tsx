@@ -21,7 +21,7 @@ export function TargetAudience() {
   });
 
         return (
-          <section id="pricing" className="py-24 overflow-hidden bg-white">
+          <section id="built-for" className="py-24 overflow-hidden bg-white">
             <div className="container mx-auto px-6">
 
             <div className="flex flex-col lg:flex-row items-center gap-16">
