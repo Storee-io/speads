@@ -54,6 +54,12 @@ export function WhatsappContactModal({
   isOpen,
   onClose,
 }: WhatsappContactModalProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
