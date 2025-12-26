@@ -21,9 +21,7 @@ export function Footer() {
               <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
                 {t.footer.ctaPrimary}
               </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto text-white border-slate-800 bg-white/5 hover:bg-white/10">
-                {t.footer.ctaSecondary} <ArrowUpRight className="ml-2 w-4 h-4" />
-              </Button>
+
             </div>
           </div>
 
