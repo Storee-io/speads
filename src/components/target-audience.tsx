@@ -8,43 +8,44 @@ import { useTranslation } from "@/lib/i18n";
 export function TargetAudience() {
   const { t } = useTranslation();
 
-  const audiences = t.targetAudience.list.map((item, index) => {
-    const images = [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2055&auto=format&fit=crop"
-    ];
-    return {
-      ...item,
-      image: images[index]
-    };
-  });
+    const audiences = t.targetAudience.list.map((item, index) => {
+      const images = [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2055&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
+      ];
+      return {
+        ...item,
+        image: images[index]
+      };
+    });
 
-  return (
-    <section id="built-for" className="py-24 overflow-hidden bg-white">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900"
-          >
-            {t.targetAudience.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">{t.targetAudience.highlight}</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto"
-          >
-            {t.targetAudience.satisfaction}: <span className="font-bold text-indigo-600">98%</span>
-          </motion.p>
-        </div>
+    return (
+      <section id="built-for" className="py-24 overflow-hidden bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900"
+            >
+              {t.targetAudience.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">{t.targetAudience.highlight}</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-lg text-slate-600 max-w-2xl mx-auto"
+            >
+              {t.targetAudience.satisfaction}: <span className="font-bold text-indigo-600">98%</span>
+            </motion.p>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {audiences.map((item, index) => (
             <motion.div
               key={item.type}
