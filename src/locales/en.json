@@ -82,12 +82,16 @@
         "type": "Corporates",
         "benefit": "Modernize legacy systems and build scalable internal tools that integrate seamlessly with your existing stack."
       },
-      {
-        "type": "Entrepreneurs",
-        "benefit": "Turn your unique ideas into powerful digital products with our specialized AI-assisted development team."
-      }
-    ]
-  },
+        {
+          "type": "Entrepreneurs",
+          "benefit": "Turn your unique ideas into powerful digital products with our specialized AI-assisted development team."
+        },
+        {
+          "type": "SMEs",
+          "benefit": "Scale your business operations with efficient, cost-effective digital solutions that grow with your company."
+        }
+      ]
+    },
   "faq": {
     "title": "Common Questions",
     "subtitle": "Everything you need to know about our AI-powered development process.",
