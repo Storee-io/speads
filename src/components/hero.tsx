@@ -234,6 +234,7 @@ function BottomTransition() {
 
 export function Hero() {
   const { t } = useTranslation();
+  const { openContactModal } = useContactModal();
 
   return (
     <section className="relative pt-32 pb-48 lg:pt-48 lg:pb-64 overflow-hidden bg-slate-950 group transform-gpu z-10">
