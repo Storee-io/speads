@@ -19,10 +19,12 @@ import {
 export function Navbar() {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
-  const router = useRouter();
-  const [isScrolled, setIsScrolled] = useState(false);
+    const router = useRouter();
+    const [isScrolled, setIsScrolled] = useState(false);
+    const { openContactModal } = useContactModal();
 
-  useEffect(() => {
+    useEffect(() => {
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
