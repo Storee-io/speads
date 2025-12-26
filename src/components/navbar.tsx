@@ -183,11 +183,7 @@ export function Navbar() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button variant="ghost" size="sm" className={`hidden sm:flex rounded-full ${
-              isScrolled 
-                ? "text-slate-900 hover:text-indigo-600 hover:bg-slate-100" 
-                : "text-white hover:text-white hover:bg-white/10"
-            }`}>{t.navbar.login}</Button>
+
             <Button size="sm" className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 text-white border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95">{t.navbar.getStarted}</Button>
           </div>
       </nav>
