@@ -1,9 +1,9 @@
 {
-    "navbar": {
-      "services": "Layanan",
-      "howItWorks": "Proses Kami",
-      "pricing": "Built For",
-      "faq": "FAQ",
+  "navbar": {
+    "services": "Layanan",
+    "howItWorks": "Proses Kami",
+    "pricing": "Built For",
+    "faq": "FAQ",
     "login": "Masuk",
     "getStarted": "Hubungi Kami"
   },
