@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -28,22 +28,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Phone, User, Send, X } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .min(1, "Nama wajib diisi")
-    .regex(/^[a-zA-Z\s]+$/, "Nama hanya boleh berisi alfabet"),
-  whatsapp: z
-    .string()
-    .min(8, "Minimal 8 digit")
-    .max(15, "Maksimal 15 digit")
-    .regex(/^\d+$/, "Nomor Whatsapp hanya boleh berisi angka"),
-  requirement: z.string().min(1, "Silakan pilih kebutuhan Anda"),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
+import { useTranslation } from "@/lib/i18n";
 
 interface WhatsappContactModalProps {
   isOpen: boolean;
@@ -54,11 +39,27 @@ export function WhatsappContactModal({
   isOpen,
   onClose,
 }: WhatsappContactModalProps) {
+  const { t } = useTranslation();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const contactSchema = useMemo(() => z.object({
+    name: z
+      .string()
+      .min(1, t.contactModal.validation.nameRequired)
+      .regex(/^[a-zA-Z\s]+$/, t.contactModal.validation.nameAlpha),
+    whatsapp: z
+      .string()
+      .min(8, t.contactModal.validation.whatsappMin)
+      .max(15, t.contactModal.validation.whatsappMax)
+      .regex(/^\d+$/, t.contactModal.validation.whatsappNumeric),
+    requirement: z.string().min(1, t.contactModal.validation.requirementRequired),
+  }), [t]);
+
+  type ContactFormValues = z.infer<typeof contactSchema>;
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -69,8 +70,19 @@ export function WhatsappContactModal({
     },
   });
 
+  // Re-validate when locale changes to update error messages
+  useEffect(() => {
+    if (form.formState.isSubmitted) {
+      form.trigger();
+    }
+  }, [t, form]);
+
   const onSubmit = (data: ContactFormValues) => {
-    const message = `Halo Speads, saya ${data.name}. Saya tertarik dengan layanan ${data.requirement}. Nomor Whatsapp saya ${data.whatsapp}.`;
+    const message = t.contactModal.whatsappMessage
+      .replace("{name}", data.name)
+      .replace("{requirement}", data.requirement)
+      .replace("{whatsapp}", data.whatsapp);
+      
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
     
@@ -91,8 +103,8 @@ export function WhatsappContactModal({
               <Phone className="w-5 h-5" />
             </div>
             <div>
-              <DialogTitle className="text-white text-base font-bold">Speads Support</DialogTitle>
-              <p className="text-[10px] text-emerald-100 opacity-90">Online • Usually replies in minutes</p>
+              <DialogTitle className="text-white text-base font-bold">{t.contactModal.support}</DialogTitle>
+              <p className="text-[10px] text-emerald-100 opacity-90">{t.contactModal.online}</p>
             </div>
           </div>
           <button 
@@ -105,8 +117,6 @@ export function WhatsappContactModal({
 
         {/* Chat-like Form Container */}
         <div className="bg-[#e5ddd5] p-4 min-h-[400px] relative">
-          {/* Background pattern if needed, but keeping it clean for now */}
-          
           <div className="bg-white rounded-xl p-6 shadow-sm mb-4 border border-emerald-100/50">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -115,64 +125,64 @@ export function WhatsappContactModal({
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-slate-600 font-medium">Nama</FormLabel>
+                      <FormLabel className="text-slate-600 font-medium">{t.contactModal.form.name}</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                            <Input 
-                              placeholder="Masukkan nama lengkap" 
-                              className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
-                              {...field} 
-                            />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                          <Input 
+                            placeholder={t.contactModal.form.namePlaceholder} 
+                            className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
+                            {...field} 
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-                  <FormField
-                    control={form.control}
-                    name="whatsapp"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-slate-600 font-medium">No. Whatsapp</FormLabel>
+                <FormField
+                  control={form.control}
+                  name="whatsapp"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-slate-600 font-medium">{t.contactModal.form.whatsapp}</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                          <Input 
+                            placeholder={t.contactModal.form.whatsappPlaceholder} 
+                            className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
+                            {...field} 
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="requirement"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-slate-600 font-medium">{t.contactModal.form.requirement}</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <div className="relative">
-                            <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                            <Input 
-                              placeholder="Contoh: 08123456789" 
-                              className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
-                              {...field} 
-                            />
-                          </div>
+                          <SelectTrigger className="w-full border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900">
+                            <SelectValue placeholder={t.contactModal.form.requirementPlaceholder} />
+                          </SelectTrigger>
                         </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="requirement"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-slate-600 font-medium">Kebutuhan</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="w-full border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900">
-                              <SelectValue placeholder="Pilih kebutuhan" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-white">
-                            <SelectItem value="Web Development" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Web Development</SelectItem>
-                            <SelectItem value="Mobile Apps" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Mobile Apps</SelectItem>
-                            <SelectItem value="Enterprise Systems" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Enterprise Systems</SelectItem>
-                            <SelectItem value="Custom Software" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Custom Software</SelectItem>
-                            <SelectItem value="Saas Platforms" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Saas Platforms</SelectItem>
-                            <SelectItem value="AI Integration" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">AI Integration</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <SelectContent className="bg-white">
+                          <SelectItem value={t.services.list.web.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.web.title}</SelectItem>
+                          <SelectItem value={t.services.list.mobile.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.mobile.title}</SelectItem>
+                          <SelectItem value={t.services.list.enterprise.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.enterprise.title}</SelectItem>
+                          <SelectItem value={t.services.list.custom.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.custom.title}</SelectItem>
+                          <SelectItem value={t.services.list.saas.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.saas.title}</SelectItem>
+                          <SelectItem value={t.services.list.ai.title} className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">{t.services.list.ai.title}</SelectItem>
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -183,14 +193,14 @@ export function WhatsappContactModal({
                   className="w-full bg-[#25d366] hover:bg-[#128c7e] text-white font-bold py-6 rounded-xl flex items-center justify-center gap-2 transition-all transform active:scale-[0.98]"
                 >
                   <Send className="w-5 h-5" />
-                  Kirim Pesan
+                  {t.contactModal.form.submit}
                 </Button>
               </form>
             </Form>
           </div>
           
           <p className="text-[10px] text-slate-500 text-center italic mt-2">
-            Klik tombol di atas untuk memulai percakapan di WhatsApp
+            {t.contactModal.form.footerNote}
           </p>
         </div>
       </DialogContent>
