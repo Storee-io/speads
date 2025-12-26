@@ -184,7 +184,15 @@ export function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button size="sm" className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 text-white border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95">{t.navbar.getStarted}</Button>
+              <a 
+                href="https://api.whatsapp.com/send?phone=6289611117575&text=Halo%20Speads%2C%20saya%20ingin%20konsultasi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" className="rounded-full px-6 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 text-white border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95">
+                  {t.navbar.getStarted}
+                </Button>
+              </a>
           </div>
       </nav>
     </motion.header>
