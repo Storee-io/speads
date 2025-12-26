@@ -73,10 +73,12 @@ export default async function RootLayout({
             data-debug="true"
             data-custom-data='{"appName": "Speads", "version": "1.0.0"}'
           />
-          {children}
-          <VisualEditsMessenger />
+            {children}
+            <VisualEditsMessenger />
+          </ContactModalProvider>
         </LanguageProvider>
       </body>
+
     </html>
   );
 }
