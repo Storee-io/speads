@@ -272,9 +272,7 @@ export function Hero() {
             <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
               {t.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-white/5 backdrop-blur-sm border-slate-800 text-zinc-300 hover:bg-white/10 hover:text-white">
-              {t.hero.ctaSecondary}
-            </Button>
+
           </div>
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 grayscale opacity-30 contrast-125">
