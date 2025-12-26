@@ -17,12 +17,18 @@ export function Footer() {
               {t.footer.ctaTitle} <span className="text-indigo-500">{t.footer.ctaHighlight}</span>
             </h2>
             <p className="text-lg mb-10 max-w-2xl mx-auto text-zinc-400">{t.footer.ctaSubtitle}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
-                {t.footer.ctaPrimary}
-              </Button>
-
-            </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a 
+                  href="https://api.whatsapp.com/send?phone=6289611117575&text=Halo%20Speads%2C%20saya%20ingin%20konsultasi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <Button size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-cyan-500 hover:opacity-90 border-0 shadow-lg shadow-indigo-500/25 transition-all active:scale-95 text-white">
+                    {t.footer.ctaPrimary}
+                  </Button>
+                </a>
+              </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
