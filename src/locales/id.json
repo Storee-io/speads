@@ -27,7 +27,7 @@
       },
       "mobile": {
         "title": "Aplikasi Mobile",
-        "description": "Aplikasi mobile native dan cross-platform untuk iOS dan Android dengan performa mulus."
+        "description": "Aplikasi mobile native dan cross-platform untuk iOS and Android dengan performa mulus."
       },
       "enterprise": {
         "title": "Sistem Perusahaan",
@@ -85,6 +85,10 @@
       {
         "type": "Entrepreneur",
         "benefit": "Ubah ide unik Anda menjadi produk digital yang kuat dengan tim pengembangan berbantuan AI khusus kami."
+      },
+      {
+        "type": "UMKM",
+        "benefit": "Skalakan operasional bisnis Anda dengan solusi digital yang efisien dan hemat biaya yang tumbuh bersama perusahaan Anda."
       }
     ]
   },
@@ -117,7 +121,7 @@
     "ctaPrimary": "Hubungi Kami",
     "ctaSecondary": "Paket Harga",
     "description": "Agensi pengembangan software berbasis AI terkemuka yang membantu bisnis membangun produk lebih baik dan cepat.",
-    "rights": "Hak cipta dilindungi undang-undang.",
+    "rights": "All rights reserved.",
     "builtWith": "Dibangun dengan presisi dan AI."
   }
 }
