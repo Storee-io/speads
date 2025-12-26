@@ -75,10 +75,10 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between gap-4 text-zinc-500">
-            <p>© {new Date().getFullYear()} Speads AI Agency. {t.footer.rights}</p>
-            <p>{t.footer.builtWith}</p>
-          </div>
+            <div className="pt-8 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between gap-4 text-zinc-500">
+              <p>© <span suppressHydrationWarning>{new Date().getFullYear()}</span> Speads AI Agency. {t.footer.rights}</p>
+              <p>{t.footer.builtWith}</p>
+            </div>
         </div>
       </footer>
     );
