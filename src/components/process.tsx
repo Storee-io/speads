@@ -18,8 +18,8 @@ export function Process() {
       };
     });
 
-      return (
-        <section id="how-it-works" className="py-24 bg-zinc-50">
+        return (
+          <section id="our-process" className="py-24 bg-zinc-50">
           <div className="container mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-slate-900">{t.process.title}</h2>
