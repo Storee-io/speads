@@ -75,7 +75,7 @@ export function WhatsappContactModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl">
+      <DialogContent showCloseButton={false} className="p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl">
         {/* WhatsApp Style Header */}
         <div className="bg-[#075e54] p-4 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
