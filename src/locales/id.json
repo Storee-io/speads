@@ -114,14 +114,37 @@
       }
     ]
   },
-  "footer": {
-    "ctaTitle": "Siap untuk transformasi",
-    "ctaHighlight": "Bisnis Anda?",
-    "ctaSubtitle": "Bergabunglah dengan ratusan perusahaan yang telah mempercepat pertumbuhan mereka dengan Speads AI.",
-    "ctaPrimary": "Hubungi Kami",
-    "ctaSecondary": "Paket Harga",
-    "description": "Agensi pengembangan software berbasis AI terkemuka yang membantu bisnis membangun produk lebih baik dan cepat.",
-    "rights": "All rights reserved.",
-    "builtWith": "Dibangun dengan presisi dan AI."
+    "footer": {
+      "ctaTitle": "Siap untuk transformasi",
+      "ctaHighlight": "Bisnis Anda?",
+      "ctaSubtitle": "Bergabunglah dengan ratusan perusahaan yang telah mempercepat pertumbuhan mereka dengan Speads AI.",
+      "ctaPrimary": "Hubungi Kami",
+      "ctaSecondary": "Paket Harga",
+      "description": "Agensi pengembangan software berbasis AI terkemuka yang membantu bisnis membangun produk lebih baik dan cepat.",
+      "rights": "All rights reserved.",
+      "builtWith": "Dibangun dengan presisi dan AI."
+    },
+    "contactModal": {
+      "support": "Speads Support",
+      "online": "Online • Biasanya membalas dalam hitungan menit",
+      "form": {
+        "name": "Nama",
+        "namePlaceholder": "Masukkan nama lengkap",
+        "whatsapp": "No. Whatsapp",
+        "whatsappPlaceholder": "Contoh: 08123456789",
+        "requirement": "Kebutuhan",
+        "requirementPlaceholder": "Pilih kebutuhan",
+        "submit": "Kirim Pesan",
+        "footerNote": "Klik tombol di atas untuk memulai percakapan di WhatsApp"
+      },
+      "validation": {
+        "nameRequired": "Nama wajib diisi",
+        "nameAlpha": "Nama hanya boleh berisi alfabet",
+        "whatsappMin": "Minimal 8 digit",
+        "whatsappMax": "Maksimal 15 digit",
+        "whatsappNumeric": "Nomor Whatsapp hanya boleh berisi angka",
+        "requirementRequired": "Silakan pilih kebutuhan Anda"
+      },
+      "whatsappMessage": "Halo Speads, saya {name}. Saya tertarik dengan layanan {requirement}. Nomor Whatsapp saya {whatsapp}."
+    }
   }
-}
