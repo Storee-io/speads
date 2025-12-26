@@ -1,9 +1,9 @@
 {
-  "navbar": {
-    "services": "Services",
-    "howItWorks": "How it Works",
-    "pricing": "Pricing",
-    "faq": "FAQ",
+    "navbar": {
+      "services": "Services",
+      "howItWorks": "Our Process",
+      "pricing": "Built For",
+      "faq": "FAQ",
     "login": "Login",
     "getStarted": "Contact Us"
   },
