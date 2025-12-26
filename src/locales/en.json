@@ -114,14 +114,37 @@
       }
     ]
   },
-  "footer": {
-    "ctaTitle": "Ready to transform your",
-    "ctaHighlight": "Business?",
-    "ctaSubtitle": "Join hundreds of companies that have accelerated their growth with Speads AI.",
-    "ctaPrimary": "Contact Us",
-    "ctaSecondary": "Pricing Plans",
-    "description": "The leading AI-powered software development agency helping businesses build better products, faster.",
-    "rights": "All rights reserved.",
-    "builtWith": "Built with precision and AI."
+    "footer": {
+      "ctaTitle": "Ready to transform your",
+      "ctaHighlight": "Business?",
+      "ctaSubtitle": "Join hundreds of companies that have accelerated their growth with Speads AI.",
+      "ctaPrimary": "Contact Us",
+      "ctaSecondary": "Pricing Plans",
+      "description": "The leading AI-powered software development agency helping businesses build better products, faster.",
+      "rights": "All rights reserved.",
+      "builtWith": "Built with precision and AI."
+    },
+    "contactModal": {
+      "support": "Speads Support",
+      "online": "Online • Usually replies in minutes",
+      "form": {
+        "name": "Name",
+        "namePlaceholder": "Enter full name",
+        "whatsapp": "Whatsapp No.",
+        "whatsappPlaceholder": "Example: 08123456789",
+        "requirement": "Requirement",
+        "requirementPlaceholder": "Select requirement",
+        "submit": "Send Message",
+        "footerNote": "Click the button above to start a conversation on WhatsApp"
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameAlpha": "Name can only contain alphabets",
+        "whatsappMin": "Minimum 8 digits",
+        "whatsappMax": "Maximum 15 digits",
+        "whatsappNumeric": "Whatsapp number can only contain digits",
+        "requirementRequired": "Please select your requirement"
+      },
+      "whatsappMessage": "Hello Speads, I am {name}. I am interested in {requirement} service. My Whatsapp number is {whatsapp}."
+    }
   }
-}
