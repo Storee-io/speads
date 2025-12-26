@@ -79,6 +79,8 @@ export function WhatsappContactModal({
     form.reset();
   };
 
+  if (!mounted) return null;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent showCloseButton={false} className="p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl">
