@@ -92,6 +92,12 @@
         }
       ]
     },
+        {
+          "type": "SMEs",
+          "benefit": "Scale your business operations with efficient, cost-effective digital solutions that grow with your company."
+        }
+      ]
+    },
   "faq": {
     "title": "Common Questions",
     "subtitle": "Everything you need to know about our AI-powered development process.",
