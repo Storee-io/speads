@@ -111,60 +111,60 @@ export function WhatsappContactModal({
                       <FormControl>
                         <div className="relative">
                           <User className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                          <Input 
-                            placeholder="Masukkan nama lengkap" 
-                            className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366]" 
-                            {...field} 
-                          />
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="whatsapp"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-slate-600 font-medium">No. Whatsapp</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-                          <Input 
-                            placeholder="Contoh: 08123456789" 
-                            className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366]" 
-                            {...field} 
-                          />
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="requirement"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-slate-600 font-medium">Kebutuhan</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="border-slate-200 focus:border-[#25d366] focus:ring-[#25d366]">
-                            <SelectValue placeholder="Pilih kebutuhan" />
-                          </SelectTrigger>
+                            <Input 
+                              placeholder="Masukkan nama lengkap" 
+                              className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
+                              {...field} 
+                            />
+                          </div>
                         </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Web Development">Web Development</SelectItem>
-                          <SelectItem value="Mobile Apps">Mobile Apps</SelectItem>
-                          <SelectItem value="Enterprise Systems">Enterprise Systems</SelectItem>
-                          <SelectItem value="Custom Software">Custom Software</SelectItem>
-                          <SelectItem value="Saas Platforms">Saas Platforms</SelectItem>
-                          <SelectItem value="AI Integration">AI Integration</SelectItem>
-                        </SelectContent>
-                      </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="whatsapp"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-slate-600 font-medium">No. Whatsapp</FormLabel>
+                        <FormControl>
+                          <div className="relative">
+                            <Phone className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                            <Input 
+                              placeholder="Contoh: 08123456789" 
+                              className="pl-10 border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900" 
+                              {...field} 
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="requirement"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-slate-600 font-medium">Kebutuhan</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="w-full border-slate-200 focus:border-[#25d366] focus:ring-[#25d366] text-slate-900">
+                              <SelectValue placeholder="Pilih kebutuhan" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-white">
+                            <SelectItem value="Web Development" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Web Development</SelectItem>
+                            <SelectItem value="Mobile Apps" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Mobile Apps</SelectItem>
+                            <SelectItem value="Enterprise Systems" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Enterprise Systems</SelectItem>
+                            <SelectItem value="Custom Software" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Custom Software</SelectItem>
+                            <SelectItem value="Saas Platforms" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">Saas Platforms</SelectItem>
+                            <SelectItem value="AI Integration" className="text-slate-900 focus:bg-emerald-50 focus:text-emerald-900">AI Integration</SelectItem>
+                          </SelectContent>
+                        </Select>
                       <FormMessage />
                     </FormItem>
                   )}
