@@ -122,22 +122,22 @@ export function Navbar() {
             {t.navbar.services}
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
           </a>
-          <a 
-            href="#how-it-works" 
-            onClick={(e) => handleScrollTo(e, "#how-it-works")}
-            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
-          >
-            {t.navbar.howItWorks}
-            <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </a>
-          <a 
-            href="#pricing" 
-            onClick={(e) => handleScrollTo(e, "#pricing")}
-            className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
-          >
-            {t.navbar.pricing}
-            <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
-          </a>
+            <a 
+              href="#our-process" 
+              onClick={(e) => handleScrollTo(e, "#our-process")}
+              className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+            >
+              {t.navbar.howItWorks}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
+            </a>
+            <a 
+              href="#built-for" 
+              onClick={(e) => handleScrollTo(e, "#built-for")}
+              className={`relative group cursor-pointer ${isScrolled ? "hover:text-indigo-600" : "hover:text-cyan-400"}`}
+            >
+              {t.navbar.pricing}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? "bg-indigo-600" : "bg-cyan-400"}`} />
+            </a>
           <a 
             href="#faq" 
             onClick={(e) => handleScrollTo(e, "#faq")}
