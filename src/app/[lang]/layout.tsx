@@ -48,9 +48,9 @@ export default async function RootLayout({
 }: Props) {
   const { lang } = await params;
 
-  return (
-      <html lang={lang} className="scroll-smooth dark">
-        <body className="font-sans antialiased bg-slate-950 text-zinc-100 selection:bg-indigo-500/30">
+    return (
+        <html lang={lang} className="scroll-smooth dark" suppressHydrationWarning>
+          <body className="font-sans antialiased bg-slate-950 text-zinc-100 selection:bg-indigo-500/30">
         <LanguageProvider initialLocale={lang}>
           <Script
             id="orchids-browser-logs"
