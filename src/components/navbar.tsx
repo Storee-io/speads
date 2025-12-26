@@ -8,6 +8,7 @@ import { Cpu } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 import { usePathname, useRouter } from "next/navigation";
 import { i18n } from "@/i18n-config";
+import { useContactModal } from "./contact-modal-context";
 import {
   DropdownMenu,
   DropdownMenuContent,
