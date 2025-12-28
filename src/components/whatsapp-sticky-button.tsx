@@ -20,11 +20,8 @@ export function WhatsappStickyButton() {
       )}
       aria-label="Contact on WhatsApp"
     >
-      <FaWhatsapp className="h-8 w-8" />
-      <span className="absolute -top-1 -right-1 flex h-4 w-4">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-4 w-4 bg-white/20"></span>
-      </span>
+      <FaWhatsapp className="h-8 w-8 z-10" />
+      <span className="absolute inset-0 rounded-full animate-ping bg-[#25d366] opacity-40"></span>
     </button>
   );
 }
