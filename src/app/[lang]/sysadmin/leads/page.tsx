@@ -83,7 +83,7 @@ export default function LeadsPage() {
   };
 
   const exportToCSV = () => {
-    const headers = ['Date', 'Name', 'Phone', 'Message', 'Source'];
+    const headers = ['Date', 'Name', 'Phone', 'Service', 'Source'];
     const csvContent = [
       headers.join(','),
       ...leads.map(lead => [
