@@ -101,7 +101,7 @@ export function WhatsappContactModal({
           return;
         }
 
-        toast.success("Lead saved successfully!");
+        toast.success("Lead saved successfully! Redirecting to WhatsApp...");
 
         const message = t.contactModal.whatsappMessage
           .replace("{name}", data.name)
@@ -111,9 +111,13 @@ export function WhatsappContactModal({
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
         
-        window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
-        onClose();
-        form.reset();
+        // Give a small delay for the toast to be seen and for DB consistency
+        setTimeout(() => {
+          window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
+          onClose();
+          form.reset();
+          setIsSubmitting(false);
+        }, 1500);
       } catch (error: any) {
         console.error("Error saving lead:", error);
         toast.error("An error occurred: " + error.message);
