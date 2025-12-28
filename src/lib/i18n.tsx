@@ -8,13 +8,24 @@ import { supabase } from '@/lib/supabase';
 
 type Translations = typeof en;
 
+interface SiteSettings {
+  siteName: string;
+  defaultLanguage: string;
+  [key: string]: any;
+}
+
 interface LanguageContextType {
   locale: Locale;
   t: Translations;
+  settings: SiteSettings;
   loading: boolean;
 }
 
 const staticTranslations = { en, id };
+const defaultSettings: SiteSettings = {
+  siteName: 'Speads',
+  defaultLanguage: 'en'
+};
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -26,35 +37,47 @@ export function LanguageProvider({
   initialLocale: Locale 
 }) {
   const [t, setT] = useState<Translations>(staticTranslations[initialLocale]);
+  const [settings, setSettings] = useState<SiteSettings>(defaultSettings);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchOverrides() {
+    async function fetchData() {
       try {
-        const { data, error } = await supabase
+        // Fetch translations
+        const { data: transData } = await supabase
           .from('translations')
           .select('content')
           .eq('lang', initialLocale)
           .single();
         
-        if (data && data.content) {
-          // Deep merge static and dynamic translations
+        if (transData && transData.content) {
           setT(prev => ({
             ...prev,
-            ...data.content
+            ...transData.content
           }));
         }
+
+        // Fetch settings
+        const { data: settingsData } = await supabase
+          .from('site_settings')
+          .select('value')
+          .eq('key', 'general')
+          .single();
+        
+        if (settingsData && settingsData.value) {
+          setSettings(settingsData.value);
+        }
       } catch (err) {
-        console.error('Error fetching dynamic translations:', err);
+        console.error('Error fetching dynamic data:', err);
       } finally {
         setLoading(false);
       }
     }
-    fetchOverrides();
+    fetchData();
   }, [initialLocale]);
 
   return (
-    <LanguageContext.Provider value={{ locale: initialLocale, t, loading }}>
+    <LanguageContext.Provider value={{ locale: initialLocale, t, settings, loading }}>
       {children}
     </LanguageContext.Provider>
   );
