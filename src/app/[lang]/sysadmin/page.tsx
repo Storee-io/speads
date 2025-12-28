@@ -8,7 +8,8 @@ import {
   TrendingUp,
   ArrowUpRight,
   Clock,
-  ExternalLink
+  ExternalLink,
+  Shield
 } from 'lucide-react';
 
 export default function DashboardPage() {
