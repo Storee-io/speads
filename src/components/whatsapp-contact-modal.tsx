@@ -26,10 +26,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Phone, User, Send, X } from "lucide-react";
+import { Phone, User, Send, X, Loader2 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "@/lib/i18n";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 interface WhatsappContactModalProps {
   isOpen: boolean;
