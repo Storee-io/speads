@@ -78,7 +78,21 @@ export function WhatsappContactModal({
     }
   }, [t, form]);
 
-  const onSubmit = (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      // Save lead to Supabase
+      await supabase.from("leads").insert([
+        {
+          name: data.name,
+          phone: data.whatsapp,
+          message: data.requirement,
+          source: "whatsapp",
+        },
+      ]);
+    } catch (error) {
+      console.error("Error saving lead:", error);
+    }
+
     const message = t.contactModal.whatsappMessage
       .replace("{name}", data.name)
       .replace("{requirement}", data.requirement)
