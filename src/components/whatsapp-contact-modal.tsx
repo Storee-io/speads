@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Phone, User, Send, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "@/lib/i18n";
 
 interface WhatsappContactModalProps {
