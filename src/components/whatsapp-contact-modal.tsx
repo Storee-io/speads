@@ -78,33 +78,37 @@ export function WhatsappContactModal({
     }
   }, [t, form]);
 
-  const onSubmit = async (data: ContactFormValues) => {
-    try {
-      // Save lead to Supabase
-      await supabase.from("leads").insert([
-        {
-          name: data.name,
-          phone: data.whatsapp,
-          message: data.requirement,
-          source: "whatsapp",
-        },
-      ]);
-    } catch (error) {
-      console.error("Error saving lead:", error);
-    }
+    const onSubmit = async (data: ContactFormValues) => {
+      try {
+        // Save lead to Supabase
+        const { error: insertError } = await supabase.from("leads").insert([
+          {
+            name: data.name,
+            phone: data.whatsapp,
+            message: data.requirement,
+            source: "whatsapp",
+          },
+        ]);
 
-    const message = t.contactModal.whatsappMessage
-      .replace("{name}", data.name)
-      .replace("{requirement}", data.requirement)
-      .replace("{whatsapp}", data.whatsapp);
+        if (insertError) {
+          console.error("Supabase insert error:", insertError);
+        }
+      } catch (error) {
+        console.error("Error saving lead:", error);
+      }
+
+      const message = t.contactModal.whatsappMessage
+        .replace("{name}", data.name)
+        .replace("{requirement}", data.requirement)
+        .replace("{whatsapp}", data.whatsapp);
+        
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
       
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
-    
-    window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
-    onClose();
-    form.reset();
-  };
+      window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
+      onClose();
+      form.reset();
+    };
 
   if (!mounted) return null;
 
