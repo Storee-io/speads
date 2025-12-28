@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { WhatsappContactModal } from "./whatsapp-contact-modal";
+import { WhatsappStickyButton } from "./whatsapp-sticky-button";
 
 interface ContactModalContextType {
   openContactModal: () => void;
