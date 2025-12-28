@@ -97,13 +97,13 @@ export function WhatsappContactModal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent showCloseButton={false} className="flex flex-col p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl gap-0 bg-[#075e54]">
         {/* WhatsApp Style Header */}
-        <div className="bg-[#075e54] p-4 text-white flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <DialogTitle className="text-white text-base font-bold">{t.contactModal.support}</DialogTitle>
+          <div className="bg-[#075e54] p-4 text-white flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                <FaWhatsapp className="w-6 h-6" />
+              </div>
+              <div>
+                <DialogTitle className="text-white text-base font-bold">{t.contactModal.support}</DialogTitle>
               <p className="text-[10px] text-emerald-100 opacity-90">{t.contactModal.online}</p>
             </div>
           </div>
