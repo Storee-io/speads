@@ -31,7 +31,7 @@ export default function AdminLayout({
 
   if (loading && !pathname.endsWith('/login')) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <Loader2 className="w-8 h-8 text-indigo-500 animate-spin" />
       </div>
     );
@@ -51,12 +51,12 @@ export default function AdminLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 flex">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-slate-800 bg-slate-900/50 hidden md:flex flex-col">
+      <aside className="w-64 border-r border-slate-200 bg-white hidden md:flex flex-col">
         <div className="p-6">
-          <Link href="/sysadmin" className="flex items-center gap-3 text-white font-bold text-xl">
-            <Shield className="w-6 h-6 text-indigo-500" />
+          <Link href="/sysadmin" className="flex items-center gap-3 text-slate-900 font-bold text-xl">
+            <Shield className="w-6 h-6 text-indigo-600" />
             <span>Speads CMS</span>
           </Link>
         </div>
@@ -70,8 +70,8 @@ export default function AdminLayout({
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
                   isActive
-                    ? 'bg-indigo-600/10 text-indigo-400 border border-indigo-500/20'
-                    : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                    ? 'bg-indigo-50 text-indigo-600 border border-indigo-100'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -81,14 +81,14 @@ export default function AdminLayout({
           })}
         </nav>
 
-        <div className="p-4 border-t border-slate-800">
-          <div className="px-4 py-3 mb-4 rounded-xl bg-slate-800/50 border border-slate-700">
-            <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">Signed in as</p>
-            <p className="text-sm font-medium truncate text-white">{user.email}</p>
+        <div className="p-4 border-t border-slate-200">
+          <div className="px-4 py-3 mb-4 rounded-xl bg-slate-50 border border-slate-200">
+            <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-1">Signed in as</p>
+            <p className="text-sm font-medium truncate text-slate-900">{user.email}</p>
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all font-medium"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 hover:text-red-600 transition-all font-medium"
           >
             <LogOut className="w-5 h-5" />
             <span>Sign Out</span>
@@ -98,13 +98,13 @@ export default function AdminLayout({
 
       {/* Main Content */}
       <main className="flex-1 overflow-auto">
-        <header className="h-16 border-b border-slate-800 bg-slate-950/50 backdrop-blur-md sticky top-0 z-10 flex items-center justify-between px-8">
-          <h2 className="text-lg font-semibold text-white">
+        <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 flex items-center justify-between px-8">
+          <h2 className="text-lg font-semibold text-slate-900">
             {menuItems.find(item => item.href === pathname)?.label || 'Admin'}
           </h2>
           
           <div className="flex items-center gap-4">
-            <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
               {user.email?.[0].toUpperCase()}
             </div>
           </div>
