@@ -5,7 +5,6 @@ import { supabase } from '@/lib/supabase';
 import { 
   MessageSquare, 
   Phone, 
-  Calendar, 
   Trash2, 
   Search,
   RefreshCw,
