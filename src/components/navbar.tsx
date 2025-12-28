@@ -110,8 +110,8 @@ export function Navbar() {
             <span className={`font-heading text-xl font-bold tracking-tight bg-clip-text text-transparent ${
               isScrolled 
                 ? "bg-gradient-to-r from-slate-950 to-slate-700" 
-                : "bg-gradient-to-r from-white to-zinc-300"
-            }`}>{settings.siteName}</span>
+              : "bg-gradient-to-r from-white to-zinc-300"
+          }`}>{settings?.siteName || 'Speads'}</span>
 
         </Link>
         
