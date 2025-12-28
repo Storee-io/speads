@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useContactModal } from "./contact-modal-context";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ export function WhatsappStickyButton() {
       )}
       aria-label="Contact on WhatsApp"
     >
-      <MessageCircle className="h-7 w-7 fill-current" />
+      <FaWhatsapp className="h-8 w-8" />
       <span className="absolute -top-1 -right-1 flex h-4 w-4">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
         <span className="relative inline-flex rounded-full h-4 w-4 bg-white/20"></span>
