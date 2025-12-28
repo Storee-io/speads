@@ -79,7 +79,10 @@ export function WhatsappContactModal({
     }
   }, [t, form]);
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const onSubmit = async (data: ContactFormValues) => {
+      setIsSubmitting(true);
       try {
         // Save lead to Supabase
         const { error: insertError } = await supabase.from("leads").insert([
@@ -93,22 +96,30 @@ export function WhatsappContactModal({
 
         if (insertError) {
           console.error("Supabase insert error:", insertError);
+          toast.error("Failed to save lead: " + insertError.message);
+          setIsSubmitting(false);
+          return;
         }
-      } catch (error) {
-        console.error("Error saving lead:", error);
-      }
 
-      const message = t.contactModal.whatsappMessage
-        .replace("{name}", data.name)
-        .replace("{requirement}", data.requirement)
-        .replace("{whatsapp}", data.whatsapp);
+        toast.success("Lead saved successfully!");
+
+        const message = t.contactModal.whatsappMessage
+          .replace("{name}", data.name)
+          .replace("{requirement}", data.requirement)
+          .replace("{whatsapp}", data.whatsapp);
+          
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
         
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=6289611117575&text=${encodedMessage}`;
-      
-      window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
-      onClose();
-      form.reset();
+        window.parent.postMessage({ type: "OPEN_EXTERNAL_URL", data: { url: whatsappUrl } }, "*");
+        onClose();
+        form.reset();
+      } catch (error: any) {
+        console.error("Error saving lead:", error);
+        toast.error("An error occurred: " + error.message);
+      } finally {
+        setIsSubmitting(false);
+      }
     };
 
   if (!mounted) return null;
