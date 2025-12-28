@@ -7,7 +7,7 @@ import { useTranslation } from "@/lib/i18n";
 import { useContactModal } from "./contact-modal-context";
 
 export function Footer() {
-  const { t } = useTranslation();
+  const { t, settings } = useTranslation();
   const { openContactModal } = useContactModal();
 
   return (
@@ -36,7 +36,7 @@ export function Footer() {
                 <div className="bg-gradient-to-br from-indigo-500 to-cyan-400 p-1.5 rounded-lg">
                   <Cpu className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-heading text-xl font-bold tracking-tight text-white">Speads</span>
+                <span className="font-heading text-xl font-bold tracking-tight text-white">{settings?.siteName || 'Speads'}</span>
               </Link>
               <p className="text-sm leading-relaxed mb-6 text-zinc-400">
                 {t.footer.description}
