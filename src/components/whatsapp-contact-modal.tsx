@@ -221,10 +221,15 @@ export function WhatsappContactModal({
 
                 <Button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-[#25d366] hover:bg-[#128c7e] text-white font-bold py-6 rounded-xl flex items-center justify-center gap-2 transition-all transform active:scale-[0.98]"
                 >
-                  <Send className="w-5 h-5" />
-                  {t.contactModal.form.submit}
+                  {isSubmitting ? (
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                  ) : (
+                    <Send className="w-5 h-5" />
+                  )}
+                  {isSubmitting ? "Sending..." : t.contactModal.form.submit}
                 </Button>
               </form>
             </Form>
