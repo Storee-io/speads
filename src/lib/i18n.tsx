@@ -65,7 +65,10 @@ export function LanguageProvider({
           .single();
         
         if (settingsData && settingsData.value) {
-          setSettings(settingsData.value);
+          setSettings(prev => ({
+            ...prev,
+            ...settingsData.value
+          }));
         }
       } catch (err) {
         console.error('Error fetching dynamic data:', err);
