@@ -187,12 +187,11 @@ export default function LeadsPage() {
                         </div>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-start gap-2 max-w-md">
-                        <MessageSquare className="w-4 h-4 text-slate-400 mt-1 shrink-0" />
-                        <p className="text-sm text-slate-600 line-clamp-2">{lead.message}</p>
-                      </div>
-                    </td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-start gap-2 max-w-md">
+                          <p className="text-sm text-slate-600 line-clamp-2">{lead.message}</p>
+                        </div>
+                      </td>
                     <td className="px-6 py-4">
                       <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 font-medium">
                         {lead.source}
