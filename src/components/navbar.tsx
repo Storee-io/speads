@@ -107,11 +107,12 @@ export function Navbar() {
           <div className="bg-gradient-to-br from-indigo-500 via-indigo-600 to-cyan-400 p-1.5 rounded-lg group-hover:rotate-12 transition-transform shadow-lg shadow-indigo-500/20">
             <Cpu className="w-5 h-5 text-white" />
           </div>
-          <span className={`font-heading text-xl font-bold tracking-tight bg-clip-text text-transparent ${
-            isScrolled 
-              ? "bg-gradient-to-r from-slate-950 to-slate-700" 
-              : "bg-gradient-to-r from-white to-zinc-300"
-          }`}>Speads</span>
+            <span className={`font-heading text-xl font-bold tracking-tight bg-clip-text text-transparent ${
+              isScrolled 
+                ? "bg-gradient-to-r from-slate-950 to-slate-700" 
+                : "bg-gradient-to-r from-white to-zinc-300"
+            }`}>{settings.siteName}</span>
+
         </Link>
         
         <div className={`hidden md:flex items-center gap-8 text-sm font-semibold ${
