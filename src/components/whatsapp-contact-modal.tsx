@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, User, Send, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "@/lib/i18n";
+import { supabase } from "@/lib/supabase";
 
 interface WhatsappContactModalProps {
   isOpen: boolean;
