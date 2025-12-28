@@ -155,7 +155,7 @@ export default function LeadsPage() {
             <thead>
               <tr className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-200">
                 <th className="px-6 py-4">Lead Info</th>
-                <th className="px-6 py-4">Message</th>
+                  <th className="px-6 py-4">Service</th>
                 <th className="px-6 py-4">Source</th>
                 <th className="px-6 py-4">Date</th>
                 <th className="px-6 py-4 text-right">Actions</th>
