@@ -94,7 +94,7 @@ export function WhatsappContactModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent showCloseButton={false} className="flex flex-col p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl gap-0 bg-[#e5ddd5]">
+      <DialogContent showCloseButton={false} className="flex flex-col p-0 overflow-hidden border-none max-w-[400px] rounded-2xl shadow-2xl gap-0 bg-[#075e54]">
         {/* WhatsApp Style Header */}
         <div className="bg-[#075e54] p-4 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -115,7 +115,7 @@ export function WhatsappContactModal({
         </div>
 
         {/* Chat-like Form Container */}
-        <div className="bg-[#e5ddd5] p-4 min-h-[400px] relative">
+        <div className="bg-[#e5ddd5] p-4 min-h-[400px] relative flex-1">
           <div className="bg-white rounded-xl p-6 shadow-sm mb-4 border border-emerald-100/50">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
