@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
-import { Loader2, LayoutDashboard, Settings, Users, FileText, LogOut, Shield } from 'lucide-react';
+import { Loader2, LayoutDashboard, Settings, Users, FileText, LogOut, Shield, MessageSquare } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
 import Link from 'next/link';
