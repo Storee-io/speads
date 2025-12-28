@@ -198,12 +198,11 @@ export default function LeadsPage() {
                         {lead.source}
                       </span>
                     </td>
-                    <td className="px-6 py-4">
-                      <div className="text-xs text-slate-500 flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {formatDate(lead.created_at)}
-                      </div>
-                    </td>
+                      <td className="px-6 py-4">
+                        <div className="text-xs text-slate-500">
+                          {formatDate(lead.created_at)}
+                        </div>
+                      </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button 
