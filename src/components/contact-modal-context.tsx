@@ -27,6 +27,7 @@ export function ContactModalProvider({
     <ContactModalContext.Provider value={{ openContactModal, closeContactModal }}>
       {children}
       <WhatsappContactModal isOpen={isOpen} onClose={closeContactModal} />
+      <WhatsappStickyButton />
     </ContactModalContext.Provider>
   );
 }
