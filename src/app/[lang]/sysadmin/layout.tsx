@@ -43,12 +43,14 @@ export default function AdminLayout({
 
   if (!user) return null;
 
-  const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/sysadmin' },
-    { icon: FileText, label: 'Content', href: '/sysadmin/content' },
-    { icon: Users, label: 'Users', href: '/sysadmin/users' },
-    { icon: Settings, label: 'Settings', href: '/sysadmin/settings' },
-  ];
+    const menuItems = [
+      { icon: LayoutDashboard, label: 'Dashboard', href: '/sysadmin' },
+      { icon: FileText, label: 'Content', href: '/sysadmin/content' },
+      { icon: MessageSquare, label: 'Leads', href: '/sysadmin/leads' },
+      { icon: Users, label: 'Users', href: '/sysadmin/users' },
+      { icon: Settings, label: 'Settings', href: '/sysadmin/settings' },
+    ];
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex">
