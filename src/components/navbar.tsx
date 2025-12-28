@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
-  const { t, locale } = useTranslation();
+  const { t, locale, settings } = useTranslation();
   const pathname = usePathname();
     const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
