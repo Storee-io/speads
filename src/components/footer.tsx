@@ -33,11 +33,12 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 lg:col-span-1">
               <Link href="/" className="flex items-center gap-2 mb-6 group">
-                <div className="bg-gradient-to-br from-indigo-500 to-cyan-400 p-1.5 rounded-lg">
-                  <Cpu className="w-5 h-5 text-white" />
-                </div>
-                <span className="font-heading text-xl font-bold tracking-tight text-white">{settings?.siteName || 'Speads'}</span>
-              </Link>
+                  <img 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/07499db0-1c82-4b25-9a10-20f14972a9a0/Logo-Speads-White-1767432999440.png?width=8000&height=8000&resize=contain"
+                    alt="Speads"
+                    className="h-6 w-auto"
+                  />
+                </Link>
               <p className="text-sm leading-relaxed mb-6 text-zinc-400">
                 {t.footer.description}
               </p>

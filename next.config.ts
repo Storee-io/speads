@@ -19,22 +19,25 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion", "@tabler/icons-react"],
+    turbopack: {
+      rules: {
+        "*.{jsx,tsx}": {
+          loaders: [LOADER],
+        },
+      },
+      resolveAlias: {
+        '@formatjs/fast-memoize': '@formatjs/fast-memoize',
+      },
+    },
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  transpilePackages: ['@formatjs/intl-localematcher', '@formatjs/fast-memoize'],
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
-      }
-    }
-  }
 };
 
 export default nextConfig;
-// Orchids restart: 1766915677602
+// Orchids restart: 1767432577830

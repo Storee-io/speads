@@ -29,10 +29,15 @@ export async function generateMetadata(
     title: lang === 'id' 
       ? "Speads | Agensi Pengembangan Software Berbasis AI" 
       : "Speads | AI-Powered Software Development Agency",
-    description: lang === 'id'
-      ? "Bangun website, aplikasi, dan software kustom 10x lebih cepat dan murah dengan pengembangan berbantuan AI. Dari startup hingga korporat, kami mewujudkan visi Anda."
-      : "Build websites, apps, and custom software 10x faster and cheaper with AI-assisted development. From startups to corporates, we scale your vision.",
-    alternates: {
+      description: lang === 'id'
+        ? "Bangun website, aplikasi, dan software kustom 10x lebih cepat dan murah dengan pengembangan berbantuan AI. Dari startup hingga korporat, kami mewujudkan visi Anda."
+        : "Build websites, apps, and custom software 10x faster and cheaper with AI-assisted development. From startups to corporates, we scale your vision.",
+      icons: {
+        icon: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/07499db0-1c82-4b25-9a10-20f14972a9a0/Icon-Speads-1767433693990.png?width=8000&height=8000&resize=contain',
+        shortcut: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/07499db0-1c82-4b25-9a10-20f14972a9a0/Icon-Speads-1767433693990.png?width=8000&height=8000&resize=contain',
+        apple: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/07499db0-1c82-4b25-9a10-20f14972a9a0/Icon-Speads-1767433693990.png?width=8000&height=8000&resize=contain',
+      },
+      alternates: {
       canonical: lang === i18n.defaultLocale ? baseUrl : `${baseUrl}/${lang}`,
       languages: {
         'id-ID': baseUrl, // Default language at root
